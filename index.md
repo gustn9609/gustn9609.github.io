@@ -8,7 +8,7 @@ I'm Hyunsoo Kim, a M.S. student in UTL lab at Korea University, co-advised by Pr
 
 ## Research Interests
 
-- **Deep Generative Model:** diffusion, flow matching
+- **Generative Model:** diffusion, flow matching
 - **AI safety:** unlearning, concept erasing
 
 ## News
@@ -17,4 +17,4 @@ I'm Hyunsoo Kim, a M.S. student in UTL lab at Korea University, co-advised by Pr
 
 {% include_relative _includes/publications.md %}
 
-{% include_relative _includes/services.md %}
+<!-- {% include_relative _includes/services.md %} -->
