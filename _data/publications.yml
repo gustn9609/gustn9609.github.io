@@ -1,6 +1,6 @@
 main:
 
-  - title: Difference Inversion: Interpolate and Isolate the Difference with Token Consistency for Image Analogy Generation
+  - title: Difference Inversion; Interpolate and Isolate the Difference with Token Consistency for Image Analogy Generation
     authors: <strong>Hyunsoo Kim</strong>, Donghyun Kim*, Suhyun Kim* (*Corresponding authors)
     conference_short: CVPR
     conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2025.
