@@ -8,12 +8,12 @@ I'm Hyunsoo Kim, a M.S. student in UTL lab at Korea University, co-advised by Pr
 
 ## Research Interests
 
-- **Generative Model:** diffusion, flow matching
+- **Generative Models:** diffusion, flow matching
 - **AI safety:** unlearning, concept erasing
 
 ## News
 
-- **[Feb. 2025]** Our paper about image analogy generation is accepted to CVPR 2025! See you in Nashville!
+- **[Feb. 2025]** Our paper about image analogy generation is accepted to CVPR 2025!
 
 {% include_relative _includes/publications.md %}
 
