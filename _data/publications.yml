@@ -1,14 +1,14 @@
 main:
 
   - title: "When Model Knowledge meets Diffusion Model: Diffusion-assisted Data-free Image Synthesis with Alignment of Domain and Class"
-    authors: Yujin Kim*, <strong>Hyunsoo Kim*</strong>, Hyunsoo J. Kim, Suhyun Kim (*Equal contribution)
+    authors: "Yujin Kim*, <strong>Hyunsoo Kim*</strong>, Hyunsoo J. Kim, Suhyun Kim (*: Equal contribution)"
     conference_short: ICML
-    conference: The International Conference on Machine Learning <strong>(ICML)</strong>, 2025.
+    conference: International Conference on Machine Learning <strong>(ICML)</strong>, 2025.
     pdf: https://gustn9609.github.io
     image: ./assets/img/DDIS.png
 
   - title: "Difference Inversion: Interpolate and Isolate the Difference with Token Consistency for Image Analogy Generation"
-    authors: <strong>Hyunsoo Kim</strong>, Donghyun Kim^, Suhyun Kim^ (^Eqaul advising)
+    authors: "<strong>Hyunsoo Kim</strong>, Donghyun Kim^, Suhyun Kim^ (^: Eqaul advising)"
     conference_short: CVPR
     conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2025.
     pdf: https://gustn9609.github.io
