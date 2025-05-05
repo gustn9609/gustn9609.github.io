@@ -4,7 +4,7 @@ layout: homepage
 
 ## About Me
 
-I'm Hyunsoo Kim, a M.S. student in UTL lab at Korea University, co-advised by Prof. Donghyun Kim and Dr. Soohyun Kim at the Korea Institute of Science and Technology (KIST).
+I'm Hyunsoo Kim, a M.S. student in UTL lab at Korea University, co-advised by Prof. Donghyun Kim and Dr. Suhyun Kim at the Korea Institute of Science and Technology (KIST).
 
 ## Research Interests
 
