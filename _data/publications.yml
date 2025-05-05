@@ -1,6 +1,6 @@
 main:
 
-  - title: Difference Inversion; Interpolate and Isolate the Difference with Token Consistency for Image Analogy Generation
+  - title: "Difference Inversion: Interpolate and Isolate the Difference with Token Consistency for Image Analogy Generation"
     authors: <strong>Hyunsoo Kim</strong>, Donghyun Kim*, Suhyun Kim* (*Corresponding authors)
     conference_short: CVPR
     conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2025.
@@ -10,7 +10,7 @@ main:
     # bibtex: https://bib.yliu.me/MICCAI23.txt
     # notes: Early Accept
 
-  - title: When Model Knowledge meets Diffusion Model: Diffusion-assisted Data-free Image Synthesis with Alignment of Domain and Class
+  - title: "When Model Knowledge meets Diffusion Model: Diffusion-assisted Data-free Image Synthesis with Alignment of Domain and Class"
     authors: Yujin Kim*, <strong>Hyunsoo Kim*</strong>, Hyunsoo J. Kim, Suhyun Kim (*Equal contribution)
     conference_short: ICML
     conference: The International Conference on Machine Learning <strong>(ICML)</strong>, 2025.
