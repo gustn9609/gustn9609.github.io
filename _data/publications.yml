@@ -8,7 +8,7 @@ main:
     image: ./assets/img/DDIS.png
 
   - title: "Difference Inversion: Interpolate and Isolate the Difference with Token Consistency for Image Analogy Generation"
-    authors: "<strong>Hyunsoo Kim</strong>, Donghyun Kim^, Suhyun Kim^ (^: Eqaul advising)"
+    authors: "<strong>Hyunsoo Kim</strong>, Donghyun Kim^, Suhyun Kim^ (^: Equal advising)"
     conference_short: CVPR
     conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2025.
     pdf: https://gustn9609.github.io
