@@ -4,7 +4,7 @@ main:
     authors: "Yujin Kim*, <strong>Hyunsoo Kim*</strong>, Hyunsoo J. Kim, Suhyun Kim (*: Equal contribution)"
     conference_short: ICML
     conference: International Conference on Machine Learning <strong>(ICML)</strong>, 2025.
-    pdf: https://gustn9609.github.io
+    pdf: https://arxiv.org/abs/2506.07750
     image: ./assets/img/DDIS.png
 
   - title: "Difference Inversion: Interpolate and Isolate the Difference with Token Consistency for Image Analogy Generation"
