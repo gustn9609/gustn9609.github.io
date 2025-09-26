@@ -4,7 +4,7 @@ main:
     conference_short: under review
     conference: under review
     # pdf: https://arxiv.org/abs/2506.15381
-    image: ./assets/img/coming-soon.png
+    image: ./assets/img/DDIS.png
     # project: https://kdst-team.github.io/DDIS/
 
   - title: "When Model Knowledge meets Diffusion Model: Diffusion-assisted Data-free Image Synthesis with Alignment of Domain and Class"
