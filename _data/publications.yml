@@ -1,11 +1,19 @@
 main:
+  - title: "ReSafe: Enhancing Safety of Text-to-Image Diffusion via Post-Hoc Image Back Translation"
+    authors: "<strong>Hyunsoo Kim</strong>, Wonjun Lee, Donghyun Kim^, Suhyun Kim^ (^: Equal advising)"
+    conference_short: under review
+    conference: under review
+    # pdf: https://arxiv.org/abs/2506.15381
+    # image: ./assets/img/DDIS.png
+    # project: https://kdst-team.github.io/DDIS/
 
   - title: "When Model Knowledge meets Diffusion Model: Diffusion-assisted Data-free Image Synthesis with Alignment of Domain and Class"
     authors: "Yujin Kim*, <strong>Hyunsoo Kim*</strong>, Hyunsoo J. Kim, Suhyun Kim (*: Equal contribution)"
     conference_short: ICML
     conference: International Conference on Machine Learning <strong>(ICML)</strong>, 2025.
-    pdf: https://icml.cc/virtual/2025/poster/45470
+    pdf: https://arxiv.org/abs/2506.15381
     image: ./assets/img/DDIS.png
+    project: https://kdst-team.github.io/DDIS/
 
   - title: "Difference Inversion: Interpolate and Isolate the Difference with Token Consistency for Image Analogy Generation"
     authors: "<strong>Hyunsoo Kim</strong>, Donghyun Kim^, Suhyun Kim^ (^: Equal advising)"
@@ -13,7 +21,7 @@ main:
     conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2025.
     pdf: https://arxiv.org/abs/2506.07750
     image: ./assets/img/DifferenceInversion.png
-    # code: https://github.com/MrGiovanni/ContinualLearning
+    project: https://kdst-team.github.io/DifferenceInversion/
     # bibtex: https://bib.yliu.me/MICCAI23.txt
     # notes: Early Accept
   # - title: Continual Learning for Abdominal Multi-Organ and Tumor Segmentation

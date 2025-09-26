@@ -8,7 +8,7 @@ I'm Hyunsoo Kim, a M.S. student in UTL lab at Korea University, co-advised by Pr
 
 ## Research Interests
 
-- **Generative Models:** Diffusion, Flow Matching
+- **Generative Models:** Diffusion, Flow Matching, World Model
 - **AI safety:** Concept Erasing, Unlearning
 - **Data Synthesis:** Model Inversion, Data-free Image Synthesis
 
