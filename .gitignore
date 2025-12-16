@@ -5,3 +5,10 @@ Gemfile.lock
 .DS_Store
 .jekyll-cache
 git-update.sh
+.asset-cache
+.bundle
+.jekyll-assets-cache
+node_modules
+tmp
+vendor
+kyungmnlee.github.io/
