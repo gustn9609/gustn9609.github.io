@@ -31,7 +31,7 @@ Email: *climba (at) korea (dot) edu* \| <a href="images/HyunsooKim_CV_1217.pdf">
 # 📝 Publications 
 
 - `Under Review` [Self-Improving Diffusion Classifiers with Minority Preference Optimization](),
-**Hyunsoo Kim**, Jungmyung Wi\*, Soobin Um, Donghyun Kim†, Suhyun Kim†.
+**Hyunsoo Kim\***, Jungmyung Wi\*, Soobin Um, Donghyun Kim†, Suhyun Kim†.
 <div style="margin-top: 15px;"></div>
 
 - `Under Review` [Safety-Aware Image-to-Image Translation without Paired Data](),
