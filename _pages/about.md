@@ -26,7 +26,7 @@ Beyond mere content creation, I aim to leverage generative models as fundamental
 
 **Generate to Understand.** My long-term goal is to build intelligent systems that can understand the real world in ways human would. To achieve this, generative models are the most powerful and essential instruments for approximating the complex distributions of the physical world, which directly echoes Feynman's dictum, *"What I cannot create, I do not understand"*. Namely, my research philosophy is "Generate to Understand". To truly understand a system; whether it be the data manifold, the behavior of a deep neural network, or the physical real-world; we must be able to synthesize it, approximate its representations, and reconstruct it. Given this philosophy, how can we best utilize and advance generative models as fundamental instruments for understanding, and which challenging real-world problems can we solve by doing so? -->
 
-Email: *gustn9609 (at) gmail (dot) com* | <a href="images/HyunsooKim_CV_1217.pdf">Curriculum Vitae</a>
+Email: *climba (at) korea (dot) edu* \| <a href="images/HyunsooKim_CV_1217.pdf">Curriculum Vitae</a>
 
 # 📝 Publications 
 
@@ -34,7 +34,7 @@ Email: *gustn9609 (at) gmail (dot) com* | <a href="images/HyunsooKim_CV_1217.pdf
 **Hyunsoo Kim**, Jungmyung Wi\*, Soobin Um, Donghyun Kim†, Suhyun Kim†.
 <div style="margin-top: 15px;"></div>
 
-- `Under Review` [ReSafe: Enhancing Safety of Text-to-Image Diffusion via Post-Hoc Image Back Translation](),
+- `Under Review` [Safety-Aware Image-to-Image Translation without Paired Data](),
 **Hyunsoo Kim**, Wonjun Lee, Donghyun Kim, Suhyun Kim.
 <div style="margin-top: 15px;"></div>
 
