@@ -54,7 +54,7 @@ Yujin Kim\*, **Hyunsoo Kim\***, Hyunsoo J. Kim, Suhyun Kim (\*: Equal contributi
 <!-- Add your work experience here -->
 
 # 🤝 Academic Services
-- Conference reviewer: `NeurIPS`, `AAAI`, `ICLR`
+- Conference reviewer: `AAAI`, `ICLR`, `CVPR`
 <!-- Add your academic services here -->
 
 # 📖 Educations
