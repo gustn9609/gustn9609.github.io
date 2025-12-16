@@ -11,4 +11,5 @@ git-update.sh
 node_modules
 tmp
 vendor
+!_sass/vendor
 kyungmnlee.github.io/
