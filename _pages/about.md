@@ -59,7 +59,7 @@ Yujin Kim\*, **Hyunsoo Kim\***, Hyunsoo J. Kim, Suhyun Kim (\*: Equal contributi
 
 # 📖 Educations
 
-- *2025.09 - Present*, Korea University, M.S. in Computer Science (in progress).
+- *2024.09 - Present*, Korea University, M.S. in Computer Science (in progress).
 - *2018.03 - 2024.08*, Inha University, B.S. in Statistics.
 
 <!-- # 💬 Invited Talks
