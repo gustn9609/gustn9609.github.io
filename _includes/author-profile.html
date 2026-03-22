@@ -10,7 +10,12 @@
 
   <div class="author__content">
     <h3 class="author__name">{{ author.name }}</h3>
-    {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
+    {% if author.bio or author.bio_extra %}
+      <div class="author__bio-stack">
+        {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
+        {% if author.bio_extra %}<p class="author__bio author__bio--secondary">{{ author.bio_extra }}</p>{% endif %}
+      </div>
+    {% endif %}
   </div>
 
   <div class="author__urls-wrapper">

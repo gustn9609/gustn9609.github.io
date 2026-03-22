@@ -16,39 +16,85 @@ redirect_from:
 {% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
 
 <span class='anchor' id='about-me'></span>
-I am an incoming Ph.D. student at The University of Texas at Austin. I am currently an M.S. student at Korea University, co-advised by Prof. <a href="https://cs-people.bu.edu/donhk/">Donghyun Kim</a> and Prof. <a href="https://kdst.re.kr/">Suhyun Kim</a> at Kyung Hee University (formerly at KIST).
+<div class="about-hero-card">
+  <p class="about-hero-card__lead">I am an incoming Ph.D. student at The University of Texas at Austin. I am currently an M.S. student at Korea University, co-advised by Prof. <a href="https://cs-people.bu.edu/donhk/">Donghyun Kim</a> and Prof. <a href="https://kdst.re.kr/">Suhyun Kim</a> at Kyung Hee University (formerly at KIST).</p>
 
-**My research interest is to leverage image/video generation models to solve challenging and complex real-world tasks, especially those related to human perception.** I am driven by the philosophy of **"Generate to Understand"**—echoing Feynman’s dictum, *"What I cannot create, I do not understand"*.
+  <p><strong>My research interest is to leverage image/video generation models to solve challenging and complex real-world tasks, especially those related to human perception.</strong> I am driven by the philosophy of <strong>"Generate to Understand"</strong>, echoing Feynman's dictum, <em>"What I cannot create, I do not understand"</em>.</p>
 
-Beyond mere content creation, I aim to leverage generative models as fundamental instruments to solve complex real-world tasks. I believe that just as LLMs have evolved to reason and solve problems, vision generative models will ultimately serve as the key to perceiving, reasoning about, and understanding the physical world.
+  <p>Beyond mere content creation, I aim to leverage generative models as fundamental instruments to solve complex real-world tasks. I believe that just as LLMs have evolved to reason and solve problems, vision generative models will ultimately serve as the key to perceiving, reasoning about, and understanding the physical world.</p>
+</div>
 
 <!-- My research interests lie in generative modeling, diffusion models, and their applications to visual understanding and generation. Beyond various content generation, **my research interest is to leverage image/video generation models to solve challenging and complex real-world tasks, especially those related to human perception.** I believe that image/video generation models will ultimately solve most computer vision tasks that perceive, understand, and reason based on images or videos. In the Natural Language Processing (NLP) field, we have already seen Large Language Models (LLMs) go beyond simply generating natural (human-like) text to writing thousands of lines of code, solving extremely difficult mathematical problems, and even conducting deep research. I anticipate a similar evolution in the vision domain. Image/video generation models will become even more powerful, establishing themselves not merely as tools for generation, but as tools that solve many challenging multimodal perception, physics-based problems or real world applications such as inverse problems.
 
 **Generate to Understand.** My long-term goal is to build intelligent systems that can understand the real world in ways human would. To achieve this, generative models are the most powerful and essential instruments for approximating the complex distributions of the physical world, which directly echoes Feynman's dictum, *"What I cannot create, I do not understand"*. Namely, my research philosophy is "Generate to Understand". To truly understand a system; whether it be the data manifold, the behavior of a deep neural network, or the physical real-world; we must be able to synthesize it, approximate its representations, and reconstruct it. Given this philosophy, how can we best utilize and advance generative models as fundamental instruments for understanding, and which challenging real-world problems can we solve by doing so? -->
 
-Email: *climba (at) korea (dot) edu* \| <a href="images/HyunsooKim_CV_1217.pdf">Curriculum Vitae</a>
+<p class="about-contact">Email: <em>climba (at) korea (dot) edu</em> <span class="about-contact__divider">|</span> <a href="images/HyunsooKim_CV_1217.pdf">Curriculum Vitae</a></p>
 
 # 📝 Publications 
 
-- `preprint` Correlation-Weighted Multi-Reward Optimization for Compositional Generation,
-Jungmyung Wi, **Hyunsoo Kim**, Donghyun Kim.
-[arxiv](https://arxiv.org/abs/2603.18528)
-<div style="margin-top: 15px;"></div>
+<div class="publication-list">
+  <article class="publication-card publication-card--preprint">
+    <div class="publication-card__header">
+      <span class="pub-badge pub-badge--preprint">preprint</span>
+    </div>
+    <h3 class="publication-card__title">Correlation-Weighted Multi-Reward Optimization for Compositional Generation</h3>
+    <p class="publication-card__authors">Jungmyung Wi, <strong>Hyunsoo Kim</strong>, Donghyun Kim.</p>
+    <div class="publication-card__links">
+      <a href="https://arxiv.org/abs/2603.18528">arxiv</a>
+    </div>
+  </article>
 
-- `preprint` Consistency-Preserving Concept Erasure via Unsafe-Safe Pairing and Directional Fisher-weighted Adaptation,
-Yongwoo Kim\*, Sungmin Cha\*, **Hyunsoo Kim**, Jaewon Lee, Donghyun Kim (\*: Equal contribution).
-[arxiv](https://arxiv.org/abs/2602.05339)
-<div style="margin-top: 15px;"></div>
+  <article class="publication-card publication-card--preprint">
+    <div class="publication-card__header">
+      <span class="pub-badge pub-badge--preprint">preprint</span>
+    </div>
+    <h3 class="publication-card__title">Consistency-Preserving Concept Erasure via Unsafe-Safe Pairing and Directional Fisher-weighted Adaptation</h3>
+    <p class="publication-card__authors">Yongwoo Kim*, Sungmin Cha*, <strong>Hyunsoo Kim</strong>, Jaewon Lee, Donghyun Kim. <span class="publication-card__note">(*: Equal contribution)</span></p>
+    <div class="publication-card__links">
+      <a href="https://arxiv.org/abs/2602.05339">arxiv</a>
+    </div>
+  </article>
 
-- `ICML 2025` When Model Knowledge meets Diffusion Model: Diffusion-assisted Data-free Image Synthesis with Alignment of Domain and Class,
-Yujin Kim\*, **Hyunsoo Kim\***, Hyunsoo J. Kim, Suhyun Kim (\*: Equal contribution).
-[project page](https://kdst-team.github.io/DDIS/) [arxiv](https://arxiv.org/abs/2506.15381)
-<div style="margin-top: 15px;"></div>
+  <article class="publication-card publication-card--preprint">
+    <div class="publication-card__header">
+      <span class="pub-badge pub-badge--preprint">preprint</span>
+    </div>
+    <h3 class="publication-card__title">Self-Improving Diffusion Classifiers with Minority Preference Optimization</h3>
+    <p class="publication-card__authors"><strong>Hyunsoo Kim*</strong>, Jungmyung Wi*, Soobin Um, Donghyun Kim†, Suhyun Kim†.</p>
+  </article>
 
-- `CVPR 2025` Difference Inversion: Interpolate and Isolate the Difference with Token Consistency for Image Analogy Generation,
-**Hyunsoo Kim**, Donghyun Kim†, Suhyun Kim†.
-[project page](https://kdst-team.github.io/DifferenceInversion/) [arxiv](https://arxiv.org/abs/2506.07750)
-<div style="margin-top: 15px;"></div>
+  <article class="publication-card publication-card--preprint">
+    <div class="publication-card__header">
+      <span class="pub-badge pub-badge--preprint">preprint</span>
+    </div>
+    <h3 class="publication-card__title">Safety-Aware Image-to-Image Translation without Paired Data</h3>
+    <p class="publication-card__authors"><strong>Hyunsoo Kim</strong>, Wonjun Lee, Donghyun Kim, Suhyun Kim.</p>
+  </article>
+
+  <article class="publication-card publication-card--icml">
+    <div class="publication-card__header">
+      <span class="pub-badge pub-badge--icml">ICML 2025</span>
+    </div>
+    <h3 class="publication-card__title">When Model Knowledge meets Diffusion Model: Diffusion-assisted Data-free Image Synthesis with Alignment of Domain and Class</h3>
+    <p class="publication-card__authors">Yujin Kim*, <strong>Hyunsoo Kim*</strong>, Hyunsoo J. Kim, Suhyun Kim. <span class="publication-card__note">(*: Equal contribution)</span></p>
+    <div class="publication-card__links">
+      <a href="https://kdst-team.github.io/DDIS/">project page</a>
+      <a href="https://arxiv.org/abs/2506.15381">arxiv</a>
+    </div>
+  </article>
+
+  <article class="publication-card publication-card--cvpr">
+    <div class="publication-card__header">
+      <span class="pub-badge pub-badge--cvpr">CVPR 2025</span>
+    </div>
+    <h3 class="publication-card__title">Difference Inversion: Interpolate and Isolate the Difference with Token Consistency for Image Analogy Generation</h3>
+    <p class="publication-card__authors"><strong>Hyunsoo Kim</strong>, Donghyun Kim†, Suhyun Kim†.</p>
+    <div class="publication-card__links">
+      <a href="https://kdst-team.github.io/DifferenceInversion/">project page</a>
+      <a href="https://arxiv.org/abs/2506.07750">arxiv</a>
+    </div>
+  </article>
+</div>
 
 # 💻 Work Experience
 - *2024.09 - Present*, Korea Institute of Science and Technology, Graduate Researcher, Seoul, Korea.
