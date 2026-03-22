@@ -19,6 +19,132 @@
 <meta name="theme-color" content="#ffffff">
 <link rel="stylesheet" href="assets/css/academicons.css"/>
 
+<style>
+  .about-hero-card {
+    margin: 0 0 1.5rem;
+    padding: 1.45rem 1.55rem;
+    border: 1px solid rgba(4, 51, 97, 0.1);
+    border-radius: 24px;
+    background:
+      radial-gradient(circle at top right, rgba(66, 134, 244, 0.12), transparent 34%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 249, 255, 0.98));
+    box-shadow: 0 14px 34px rgba(4, 51, 97, 0.07);
+  }
+
+  .about-hero-card__lead {
+    margin-bottom: 0.9rem;
+    font-size: 1.08em;
+    line-height: 1.8;
+  }
+
+  .about-contact {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 1.75rem;
+    padding: 0.65rem 1rem;
+    border-radius: 999px;
+    background: rgba(4, 51, 97, 0.06);
+  }
+
+  .about-contact__divider {
+    color: rgba(4, 51, 97, 0.45);
+  }
+
+  .publication-list {
+    display: grid;
+    gap: 1.1rem;
+    margin-top: 1.2rem;
+  }
+
+  .publication-card {
+    padding: 1.2rem 1.35rem 1.15rem;
+    border: 1px solid rgba(4, 51, 97, 0.08);
+    border-left: 5px solid #d7a053;
+    border-radius: 22px;
+    background: linear-gradient(180deg, #fff, #fbfcff);
+    box-shadow: 0 10px 28px rgba(4, 51, 97, 0.05);
+  }
+
+  .publication-card--preprint {
+    border-left-color: #d48a25;
+  }
+
+  .publication-card--icml {
+    border-left-color: #1a73e8;
+  }
+
+  .publication-card--cvpr {
+    border-left-color: #14866d;
+  }
+
+  .publication-card__header {
+    margin-bottom: 0.7rem;
+  }
+
+  .publication-card__title-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: flex-start;
+    gap: 0.75rem 1rem;
+  }
+
+  .publication-card__title {
+    margin: 0;
+    font-size: 1.02em;
+    line-height: 1.42;
+    border-bottom: 0;
+  }
+
+  .publication-card__authors {
+    margin: 0.6rem 0 0;
+    color: #4b5563;
+    line-height: 1.7;
+  }
+
+  .publication-card__note {
+    color: #6b7280;
+    font-size: 0.95em;
+  }
+
+  .publication-card__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .publication-card__links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.78rem;
+    border: 1px solid rgba(29, 82, 168, 0.12);
+    border-radius: 999px;
+    background: rgba(29, 82, 168, 0.06);
+    color: #1d52a8;
+    font-size: 0.92em;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .publication-card__links a:hover {
+    background: rgba(29, 82, 168, 0.12);
+    text-decoration: none;
+  }
+
+  @media (max-width: 760px) {
+    .publication-card__title-row {
+      grid-template-columns: 1fr;
+    }
+
+    .publication-card__links {
+      justify-content: flex-start;
+    }
+  }
+</style>
+
 <script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
