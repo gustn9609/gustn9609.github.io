@@ -16,7 +16,7 @@ redirect_from:
 {% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
 
 <span class='anchor' id='about-me'></span>
-I am an M.S. student at Korea University, co-advised by Prof. <a href="https://cs-people.bu.edu/donhk/">Donghyun Kim</a> and Prof. <a href="https://kdst.re.kr/">Suhyun Kim</a> at Kyung Hee University (formerly at KIST).
+I am an incoming Ph.D. student at The University of Texas at Austin. I am currently an M.S. student at Korea University, co-advised by Prof. <a href="https://cs-people.bu.edu/donhk/">Donghyun Kim</a> and Prof. <a href="https://kdst.re.kr/">Suhyun Kim</a> at Kyung Hee University (formerly at KIST).
 
 **My research interest is to leverage image/video generation models to solve challenging and complex real-world tasks, especially those related to human perception.** I am driven by the philosophy of **"Generate to Understand"**—echoing Feynman’s dictum, *"What I cannot create, I do not understand"*.
 
@@ -30,26 +30,28 @@ Email: *climba (at) korea (dot) edu* \| <a href="images/HyunsooKim_CV_1217.pdf">
 
 # 📝 Publications 
 
-- `Under Review` [Self-Improving Diffusion Classifiers with Minority Preference Optimization](),
-**Hyunsoo Kim\***, Jungmyung Wi\*, Soobin Um, Donghyun Kim†, Suhyun Kim†.
+- `preprint` Correlation-Weighted Multi-Reward Optimization for Compositional Generation,
+Jungmyung Wi, **Hyunsoo Kim**, Donghyun Kim.
+[arxiv](https://arxiv.org/abs/2603.18528)
 <div style="margin-top: 15px;"></div>
 
-- `Under Review` [Safety-Aware Image-to-Image Translation without Paired Data](),
-**Hyunsoo Kim**, Wonjun Lee, Donghyun Kim, Suhyun Kim.
+- `preprint` Consistency-Preserving Concept Erasure via Unsafe-Safe Pairing and Directional Fisher-weighted Adaptation,
+Yongwoo Kim\*, Sungmin Cha\*, **Hyunsoo Kim**, Jaewon Lee, Donghyun Kim (\*: Equal contribution).
+[arxiv](https://arxiv.org/abs/2602.05339)
 <div style="margin-top: 15px;"></div>
 
-- `ICML 2025` [When Model Knowledge meets Diffusion Model: Diffusion-assisted Data-free Image Synthesis with Alignment of Domain and Class](https://arxiv.org/abs/2506.15381),
+- `ICML 2025` When Model Knowledge meets Diffusion Model: Diffusion-assisted Data-free Image Synthesis with Alignment of Domain and Class,
 Yujin Kim\*, **Hyunsoo Kim\***, Hyunsoo J. Kim, Suhyun Kim (\*: Equal contribution).
-[Project page](https://kdst-team.github.io/DDIS/)
+[project page](https://kdst-team.github.io/DDIS/) [arxiv](https://arxiv.org/abs/2506.15381)
 <div style="margin-top: 15px;"></div>
 
-- `CVPR 2025` [Difference Inversion: Interpolate and Isolate the Difference with Token Consistency for Image Analogy Generation](https://arxiv.org/abs/2506.07750),
+- `CVPR 2025` Difference Inversion: Interpolate and Isolate the Difference with Token Consistency for Image Analogy Generation,
 **Hyunsoo Kim**, Donghyun Kim†, Suhyun Kim†.
-[Project page](https://kdst-team.github.io/DifferenceInversion/)
+[project page](https://kdst-team.github.io/DifferenceInversion/) [arxiv](https://arxiv.org/abs/2506.07750)
 <div style="margin-top: 15px;"></div>
 
 # 💻 Work Experience
-- *2025.09 - Present*, Korea Institute of Science and Technology, Graduate Researcher, Seoul, Korea.
+- *2024.09 - Present*, Korea Institute of Science and Technology, Graduate Researcher, Seoul, Korea.
 - *2024.03 - 2024.06*, Korea Institute of Science and Technology, Undergraduate Research Intern, Seoul, Korea.
 <!-- Add your work experience here -->
 
@@ -65,4 +67,3 @@ Yujin Kim\*, **Hyunsoo Kim\***, Hyunsoo J. Kim, Suhyun Kim (\*: Equal contributi
 <!-- # 💬 Invited Talks
 - *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/) -->
-
