@@ -35,7 +35,7 @@ redirect_from:
 <div class="publication-list">
   <article class="publication-card publication-card--preprint">
     <div class="publication-card__header">
-      <span class="pub-badge pub-badge--preprint">preprint</span>
+      <span class="pub-badge pub-badge--preprint" style="display:inline-block;padding:0.28rem 0.7rem;border-radius:999px;border:1px solid rgba(154,90,0,0.12);background:rgba(212,138,37,0.14);color:#9a5a00;font-size:0.78em;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">preprint</span>
     </div>
     <h3 class="publication-card__title">Correlation-Weighted Multi-Reward Optimization for Compositional Generation</h3>
     <p class="publication-card__authors">Jungmyung Wi, <strong>Hyunsoo Kim</strong>, Donghyun Kim.</p>
@@ -46,7 +46,7 @@ redirect_from:
 
   <article class="publication-card publication-card--preprint">
     <div class="publication-card__header">
-      <span class="pub-badge pub-badge--preprint">preprint</span>
+      <span class="pub-badge pub-badge--preprint" style="display:inline-block;padding:0.28rem 0.7rem;border-radius:999px;border:1px solid rgba(154,90,0,0.12);background:rgba(212,138,37,0.14);color:#9a5a00;font-size:0.78em;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">preprint</span>
     </div>
     <h3 class="publication-card__title">Consistency-Preserving Concept Erasure via Unsafe-Safe Pairing and Directional Fisher-weighted Adaptation</h3>
     <p class="publication-card__authors">Yongwoo Kim*, Sungmin Cha*, <strong>Hyunsoo Kim</strong>, Jaewon Lee, Donghyun Kim. <span class="publication-card__note">(*: Equal contribution)</span></p>
@@ -57,7 +57,7 @@ redirect_from:
 
   <article class="publication-card publication-card--preprint">
     <div class="publication-card__header">
-      <span class="pub-badge pub-badge--preprint">preprint</span>
+      <span class="pub-badge pub-badge--preprint" style="display:inline-block;padding:0.28rem 0.7rem;border-radius:999px;border:1px solid rgba(154,90,0,0.12);background:rgba(212,138,37,0.14);color:#9a5a00;font-size:0.78em;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">preprint</span>
     </div>
     <h3 class="publication-card__title">Self-Improving Diffusion Classifiers with Minority Preference Optimization</h3>
     <p class="publication-card__authors"><strong>Hyunsoo Kim*</strong>, Jungmyung Wi*, Soobin Um, Donghyun Kim†, Suhyun Kim†.</p>
@@ -65,7 +65,7 @@ redirect_from:
 
   <article class="publication-card publication-card--preprint">
     <div class="publication-card__header">
-      <span class="pub-badge pub-badge--preprint">preprint</span>
+      <span class="pub-badge pub-badge--preprint" style="display:inline-block;padding:0.28rem 0.7rem;border-radius:999px;border:1px solid rgba(154,90,0,0.12);background:rgba(212,138,37,0.14);color:#9a5a00;font-size:0.78em;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">preprint</span>
     </div>
     <h3 class="publication-card__title">Safety-Aware Image-to-Image Translation without Paired Data</h3>
     <p class="publication-card__authors"><strong>Hyunsoo Kim</strong>, Wonjun Lee, Donghyun Kim, Suhyun Kim.</p>
@@ -73,7 +73,7 @@ redirect_from:
 
   <article class="publication-card publication-card--icml">
     <div class="publication-card__header">
-      <span class="pub-badge pub-badge--icml">ICML 2025</span>
+      <span class="pub-badge pub-badge--icml" style="display:inline-block;padding:0.28rem 0.7rem;border-radius:999px;border:1px solid rgba(11,87,208,0.12);background:rgba(26,115,232,0.14);color:#0b57d0;font-size:0.78em;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">ICML 2025</span>
     </div>
     <h3 class="publication-card__title">When Model Knowledge meets Diffusion Model: Diffusion-assisted Data-free Image Synthesis with Alignment of Domain and Class</h3>
     <p class="publication-card__authors">Yujin Kim*, <strong>Hyunsoo Kim*</strong>, Hyunsoo J. Kim, Suhyun Kim. <span class="publication-card__note">(*: Equal contribution)</span></p>
@@ -85,7 +85,7 @@ redirect_from:
 
   <article class="publication-card publication-card--cvpr">
     <div class="publication-card__header">
-      <span class="pub-badge pub-badge--cvpr">CVPR 2025</span>
+      <span class="pub-badge pub-badge--cvpr" style="display:inline-block;padding:0.28rem 0.7rem;border-radius:999px;border:1px solid rgba(13,107,86,0.12);background:rgba(20,134,109,0.14);color:#0d6b56;font-size:0.78em;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">CVPR 2025</span>
     </div>
     <h3 class="publication-card__title">Difference Inversion: Interpolate and Isolate the Difference with Token Consistency for Image Analogy Generation</h3>
     <p class="publication-card__authors"><strong>Hyunsoo Kim</strong>, Donghyun Kim†, Suhyun Kim†.</p>

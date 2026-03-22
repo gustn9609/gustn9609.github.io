@@ -24,8 +24,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Hyunsoo Kim"
   avatar           : "images/avatar.png"
-  bio              : "M.S. Student @ Korea University"
-  bio_extra        : "Incoming Ph.D. Student @ UT Austin"
+  bio              : "Incoming Ph.D. Student @ UT Austin"
   location         :
   employer         :
   pubmed           : 
