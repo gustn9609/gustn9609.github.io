@@ -78,7 +78,7 @@ redirect_from:
     <h3 class="publication-card__title">When Model Knowledge meets Diffusion Model: Diffusion-assisted Data-free Image Synthesis with Alignment of Domain and Class</h3>
     <p class="publication-card__authors">Yujin Kim*, <strong>Hyunsoo Kim*</strong>, Hyunsoo J. Kim, Suhyun Kim. <span class="publication-card__note">(*: Equal contribution)</span></p>
     <div class="publication-card__links">
-      <a href="https://kdst-team.github.io/DDIS/">project page</a>
+      <a href="https://kdst-team.github.io/DDIS/">project</a>
       <a href="https://arxiv.org/abs/2506.15381">arxiv</a>
     </div>
   </article>
@@ -90,7 +90,7 @@ redirect_from:
     <h3 class="publication-card__title">Difference Inversion: Interpolate and Isolate the Difference with Token Consistency for Image Analogy Generation</h3>
     <p class="publication-card__authors"><strong>Hyunsoo Kim</strong>, Donghyun Kim†, Suhyun Kim†.</p>
     <div class="publication-card__links">
-      <a href="https://kdst-team.github.io/DifferenceInversion/">project page</a>
+      <a href="https://kdst-team.github.io/DifferenceInversion/">project</a>
       <a href="https://arxiv.org/abs/2506.07750">arxiv</a>
     </div>
   </article>
