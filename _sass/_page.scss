@@ -180,15 +180,24 @@
     margin-bottom: 0.65rem;
   }
 
+  .publication-card__title-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.6rem 1rem;
+  }
+
   .publication-card__title {
-    margin: 0 0 0.5rem;
+    flex: 1 1 560px;
+    margin: 0;
     font-size: 1.02em;
     line-height: 1.45;
     border-bottom: 0;
   }
 
   .publication-card__authors {
-    margin: 0;
+    margin: 0.55rem 0 0;
     color: #485466;
     line-height: 1.7;
   }
@@ -203,6 +212,12 @@
     flex-wrap: wrap;
     gap: 0.55rem;
     margin-top: 0.9rem;
+  }
+
+  .publication-card__links--inline {
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    margin-top: 0;
   }
 
   .publication-card__links a {
