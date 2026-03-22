@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 <div class="about-hero-card">
-  <p class="about-hero-card__lead">I am an incoming Ph.D. student at The University of Texas at Austin. I am currently an M.S. student at Korea University, co-advised by Prof. <a href="https://cs-people.bu.edu/donhk/">Donghyun Kim</a> and Prof. <a href="https://kdst.re.kr/">Suhyun Kim</a> at Kyung Hee University (formerly at KIST).</p>
+  <p class="about-hero-card__lead">I am currently an M.S. student at Korea University, co-advised by Prof. <a href="https://cs-people.bu.edu/donhk/">Donghyun Kim</a> and Prof. <a href="https://kdst.re.kr/">Suhyun Kim</a> at Kyung Hee University (formerly at KIST), and will join The University of Texas at Austin as an incoming Ph.D. student.</p>
 
   <p><strong>My research interest is to leverage image/video generation models to solve challenging and complex real-world tasks, especially those related to human perception.</strong> I am driven by the philosophy of <strong>"Generate to Understand"</strong>, echoing Feynman's dictum, <em>"What I cannot create, I do not understand"</em>.</p>
 
