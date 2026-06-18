@@ -33,9 +33,9 @@ redirect_from:
 # 📝 Publications 
 
 <div class="publication-list">
-  <article class="publication-card publication-card--preprint">
+  <article class="publication-card publication-card--eccv">
     <div class="publication-card__header">
-      <span class="pub-badge pub-badge--preprint" style="display:inline-block;padding:0.28rem 0.7rem;border-radius:999px;border:1px solid rgba(154,90,0,0.12);background:rgba(212,138,37,0.14);color:#9a5a00;font-size:0.78em;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">preprint</span>
+      <span class="pub-badge pub-badge--eccv" style="display:inline-block;padding:0.28rem 0.7rem;border-radius:999px;border:1px solid rgba(138,21,56,0.12);background:rgba(138,21,56,0.12);color:#8a1538;font-size:0.78em;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">ECCV 2026</span>
     </div>
     <div class="publication-card__title-row">
       <h3 class="publication-card__title">Correlation-Weighted Multi-Reward Optimization for Compositional Generation</h3>
@@ -46,9 +46,9 @@ redirect_from:
     <p class="publication-card__authors">Jungmyung Wi, <strong>Hyunsoo Kim</strong>, Donghyun Kim.</p>
   </article>
 
-  <article class="publication-card publication-card--preprint">
+  <article class="publication-card publication-card--eccv">
     <div class="publication-card__header">
-      <span class="pub-badge pub-badge--preprint" style="display:inline-block;padding:0.28rem 0.7rem;border-radius:999px;border:1px solid rgba(154,90,0,0.12);background:rgba(212,138,37,0.14);color:#9a5a00;font-size:0.78em;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">preprint</span>
+      <span class="pub-badge pub-badge--eccv" style="display:inline-block;padding:0.28rem 0.7rem;border-radius:999px;border:1px solid rgba(138,21,56,0.12);background:rgba(138,21,56,0.12);color:#8a1538;font-size:0.78em;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">ECCV 2026</span>
     </div>
     <div class="publication-card__title-row">
       <h3 class="publication-card__title">Self-Improving Diffusion Classifiers with Minority Preference Optimization</h3>
