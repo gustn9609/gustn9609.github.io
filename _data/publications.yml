@@ -1,46 +1,53 @@
+# Newest first. Set `selected: true` to show an entry on the about page.
+# Fields: title, authors, venue, badge, image, arxiv, pdf, code, page, bibtex, note, selected
 main:
-  - title: "ReSafe: Enhancing Safety of Text-to-Image Diffusion via Post-Hoc Image Back Translation"
-    authors: "<strong>Hyunsoo Kim</strong>, Wonjun Lee, Donghyun Kim^, Suhyun Kim^ (^: Equal advising)"
-    conference_short: under review
-    conference: under review
-    # pdf: https://arxiv.org/abs/2506.15381
-    image: ./assets/img/DDIS.png
-    # project: https://kdst-team.github.io/DDIS/
+  - title: "Safety-Aware Image-to-Image Translation without Paired Data"
+    authors: "<span class='me'>Hyunsoo Kim</span>, Wonjun Lee, Donghyun Kim, Suhyun Kim"
+    venue: "Preprint, 2026."
+    badge: "preprint"
+    image: /assets/img/placeholder.png
+    selected: true
+
+  - title: "Consistency-Preserving Concept Erasure via Unsafe-Safe Pairing and Directional Fisher-weighted Adaptation"
+    authors: "Yongwoo Kim*, Sungmin Cha*, <span class='me'>Hyunsoo Kim</span>, Jaewon Lee, Donghyun Kim"
+    venue: "Preprint, 2026."
+    note: "*: equal contribution"
+    badge: "preprint"
+    image: /assets/img/placeholder.png
+    arxiv: https://arxiv.org/abs/2602.05339
+
+  - title: "Correlation-Weighted Multi-Reward Optimization for Compositional Generation"
+    authors: "Jungmyung Wi, <span class='me'>Hyunsoo Kim</span>, Donghyun Kim"
+    venue: "European Conference on Computer Vision <strong>(ECCV)</strong>, 2026."
+    badge: "ECCV 2026"
+    image: /assets/img/placeholder.png
+    arxiv: https://arxiv.org/abs/2603.18528
+    selected: true
+
+  - title: "Self-Improving Diffusion Classifiers with Minority Preference Optimization"
+    authors: "<span class='me'>Hyunsoo Kim</span>*, Jungmyung Wi*, Soobin Um, Donghyun Kim&#8224;, Suhyun Kim&#8224;"
+    venue: "European Conference on Computer Vision <strong>(ECCV)</strong>, 2026."
+    note: "*: equal contribution, &#8224;: equal advising"
+    badge: "ECCV 2026"
+    image: /assets/img/placeholder.png
+    selected: true
 
   - title: "When Model Knowledge meets Diffusion Model: Diffusion-assisted Data-free Image Synthesis with Alignment of Domain and Class"
-    authors: "Yujin Kim*, <strong>Hyunsoo Kim*</strong>, Hyunsoo J. Kim, Suhyun Kim (*: Equal contribution)"
-    conference_short: ICML
-    conference: International Conference on Machine Learning <strong>(ICML)</strong>, 2025.
-    pdf: https://arxiv.org/abs/2506.15381
+    authors: "Yujin Kim*, <span class='me'>Hyunsoo Kim</span>*, Hyunsoo J. Kim, Suhyun Kim"
+    venue: "International Conference on Machine Learning <strong>(ICML)</strong>, 2025."
+    note: "*: equal contribution"
+    badge: "ICML 2025"
+    image: /assets/img/DDIS.png
+    arxiv: https://arxiv.org/abs/2506.15381
     page: https://kdst-team.github.io/DDIS/
-    image: ./assets/img/DDIS.png
+    selected: true
 
   - title: "Difference Inversion: Interpolate and Isolate the Difference with Token Consistency for Image Analogy Generation"
-    authors: "<strong>Hyunsoo Kim</strong>, Donghyun Kim^, Suhyun Kim^ (^: Equal advising)"
-    conference_short: CVPR
-    conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2025.
-    pdf: https://arxiv.org/abs/2506.07750
+    authors: "<span class='me'>Hyunsoo Kim</span>, Donghyun Kim&#8224;, Suhyun Kim&#8224;"
+    venue: "IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2025."
+    note: "&#8224;: equal advising"
+    badge: "CVPR 2025"
+    image: /assets/img/DifferenceInversion.png
+    arxiv: https://arxiv.org/abs/2506.07750
     page: https://kdst-team.github.io/DifferenceInversion/
-    image: ./assets/img/DifferenceInversion.png
-    # bibtex: https://bib.yliu.me/MICCAI23.txt
-    # notes: Early Accept
-  # - title: Continual Learning for Abdominal Multi-Organ and Tumor Segmentation
-  #   authors: Yixiao Zhang, Xinyi Li, Huimiao Chen, Alan Yuille, <strong>Yaoyao Liu*</strong>, Zongwei Zhou* (*Corresponding authors)
-  #   conference_short: MICCAI
-  #   conference: International Conference on Medical Image Computing and Computer-Assisted Intervention <strong>(MICCAI)</strong>, 2023.
-  #   pdf: https://arxiv.org/pdf/2306.00988.pdf
-  #   code: https://github.com/MrGiovanni/ContinualLearning
-  #   bibtex: https://bib.yliu.me/MICCAI23.txt
-  #   image: ./assets/img/teaser_example_2.png
-  #   notes: Early Accept
-
-  # - title: "Mnemonics Training: Multi-Class Incremental Learning without Forgetting"
-  #   authors: <strong>Yaoyao Liu</strong>, Yuting Su, An-An Liu, Bernt Schiele, Qianru Sun
-  #   conference_short: CVPR
-  #   conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2020.
-  #   pdf: https://arxiv.org/pdf/2002.10211.pdf
-  #   code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
-  #   page: https://class-il.mpi-inf.mpg.de/mnemonics/
-  #   bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
-  #   notes: Oral Presentation
-  #   image: ./assets/img/teaser_example.png
+    selected: true

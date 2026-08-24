@@ -1,165 +1,77 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your entire site, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# `jekyll serve`. If you change this file, please restart the server process.
-
-# Site Settings
+# ---------------------------------------------------------------------------
+# Site settings
+# ---------------------------------------------------------------------------
 title                    : "Hyunsoo Kim"
-description              : "Generative AI for Human Perception"
-repository               : "gustn9609.github.io"
-google_scholar_stats_use_cdn : true
+description              : "Ph.D. student in ECE at UT Austin, working on generative models for visual understanding."
+url                      : "https://gustn9609.github.io"
+baseurl                  : ""
+repository               : "gustn9609/gustn9609.github.io"
 
-# google analytics
 google_analytics_id      : "G-CQVGENQ4WN"
 
-# SEO Related
-google_site_verification :  # get google_site_verification from https://search.google.com/search-console/about
-bing_site_verification   :  # get bing_site_verification from https://www.bing.com/webmasters/about
-baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.baidu.com/login/index?u=/site/index
-
-
-# Site Author
+# ---------------------------------------------------------------------------
+# Author / profile
+# ---------------------------------------------------------------------------
 author:
   name             : "Hyunsoo Kim"
-  avatar           : "images/avatar.png"
-  bio              : "Incoming Ph.D. Student @ UT Austin"
-  location         :
-  employer         :
-  pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?hl=ko&user=huI5ip8AAAAJ"
-  email            : "climba@korea.edu"
-  researchgate     : 
-  uri              :
-  bitbucket        :
-  codepen          :
-  dribbble         :
-  flickr           :
-  facebook         :
-  foursquare       :
+  avatar           : "assets/img/avatar.png"
+  email            : "climba@utexas.edu"
+  cv               : "/assets/files/curriculum_vitae3.pdf"
+  googlescholar    : "https://scholar.google.com/citations?hl=en&user=huI5ip8AAAAJ"
   github           : "gustn9609"
-  google_plus      :
-  keybase          :
-  instagram        :
-  impactstory      :
-  lastfm           :
   linkedin         : "hyunsoo-kim-b28a67202"
-  dblp             :
-  orcid            :
-  pinterest        :
-  soundcloud       :
-  stackoverflow    :
-  steam            :
-  tumblr           :
-  twitter          :
-  vine             :
-  weibo            :
-  xing             :
-  youtube          :
-  wikipedia        :
+  twitter          :   # e.g. "hyunsookim" (handle only) — leave blank to hide the icon
 
-
-# Reading Files
+# ---------------------------------------------------------------------------
+# Build settings
+# ---------------------------------------------------------------------------
 include:
-  - .htaccess
   - _pages
-  - files
+  - assets
 exclude:
-  - docs
-  - google_scholar_crawler
-  - "*.sublime-project"
-  - "*.sublime-workspace"
-  - .asset-cache
-  - .bundle
-  - .jekyll-assets-cache
-  - .sass-cache
-  - .github
-  - CHANGELOG
-  - Capfile
   - Gemfile
-  - Gruntfile.js
+  - Gemfile.lock
   - LICENSE
-  - README
-  - Rakefile
-  - assets/js/_main.js
-  - assets/js/plugins
-  - assets/js/vendor
-  - config
-  - gulpfile.js
-  - log
-  - node_modules
-  - package.json
-  - tmp
+  - README.md
+  - README_de.md
+  - README_zh_Hans.md
+  - README_zh_Hant.md
+  - index.md.old
+  - html_source_file
   - vendor
-  - kyungmnlee.github.io
+  - node_modules
 keep_files:
   - .git
-  - .svn
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
-
-# Conversion
 markdown: kramdown
 highlighter: rouge
-lsi: false
-excerpt_separator: "\n\n"
-incremental: false
-
-
-# Markdown Processing
 kramdown:
   input: GFM
   hard_wrap: false
   auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
 
-# Defaults
+sass:
+  sass_dir: _sass
+  style: compressed
+
+permalink: /:title/
+timezone: America/Chicago
+
 defaults:
-  # _pages
   - scope:
       path: ""
       type: pages
     values:
       layout: default
-      author_profile: true
 
-
-# Sass/SCSS
-sass:
-  sass_dir: _sass
-  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
-
-
-# Outputting
-permalink: /:categories/:title/
-timezone: Asia/Seoul # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
-
-# Plugins
 plugins:
-  - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-gist
   - jekyll-feed
   - jekyll-redirect-from
-# mimic GitHub Pages with --safe
 whitelist:
-  - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-gist
   - jekyll-feed
-  - jemoji
-
-
-# HTML Compression
-# - http://jch.penibelst.de/
-compress_html:
-  clippings: all
-  ignore:
-    envs: development
+  - jekyll-redirect-from

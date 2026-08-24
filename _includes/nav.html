@@ -1,0 +1,11 @@
+<nav class="site-nav">
+  <div class="site-nav__inner">
+    <a class="site-nav__brand" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
+    <div class="site-nav__links">
+      {% for link in site.data.navigation.main %}
+      <a href="{% if link.external %}{{ link.url }}{% else %}{{ link.url | relative_url }}{% endif %}"{% if page.url == link.url %} class="is-active"{% endif %}>{{ link.title }}</a>
+      {% endfor %}
+      <button class="theme-toggle" type="button" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+    </div>
+  </div>
+</nav>

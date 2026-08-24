@@ -1,0 +1,8 @@
+<div class="social">
+  {% if site.author.email %}<a href="mailto:{{ site.author.email }}" title="email" aria-label="email"><i class="fa-solid fa-envelope"></i></a>{% endif %}
+  {% if site.author.googlescholar %}<a href="{{ site.author.googlescholar }}" title="Google Scholar" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
+  {% if site.author.github %}<a href="https://github.com/{{ site.author.github }}" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>{% endif %}
+  {% if site.author.linkedin %}<a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>{% endif %}
+  {% if site.author.twitter %}<a href="https://x.com/{{ site.author.twitter }}" title="X" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>{% endif %}
+  {% if site.author.cv %}<a href="{{ site.author.cv | relative_url }}" title="CV" aria-label="CV"><i class="ai ai-cv"></i></a>{% endif %}
+</div>

@@ -1,23 +1,13 @@
-# main links links
+# Top navigation bar. `external: true` skips the baseurl prefix.
 main:
-  - title: "About Me"
-    url: "/#about-me"
+  - title: "about"
+    url: "/"
 
-  # - title: "News"
-  #   url: "/#-news"
+  - title: "publications"
+    url: "/publications/"
 
-  - title: "Publications"
-    url: "/#-publications"
+  - title: "teaching"
+    url: "/teaching/"
 
-  - title: "Work Experience"
-    url: "/#-work-experience"
-
-  - title: "Academic Services"
-    url: "/#-academic-services"
-
-  - title: "Educations"
-    url: "/#-educations"
-
-  # - title: "Internships"
-  #   url: "/#-internships"
-
+  - title: "cv"
+    url: "/assets/files/curriculum_vitae3.pdf"

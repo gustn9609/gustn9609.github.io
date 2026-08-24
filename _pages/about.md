@@ -1,133 +1,63 @@
 ---
+layout: default
+title: Hyunsoo Kim
+subtitle: Ph.D. Student, Electrical and Computer Engineering, The University of Texas at Austin
 permalink: /
-title: ""
-excerpt: ""
-author_profile: true
-redirect_from: 
+redirect_from:
   - /about/
   - /about.html
 ---
 
-{% if site.google_scholar_stats_use_cdn %}
-{% assign gsDataBaseUrl = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: "@" %}
-{% else %}
-{% assign gsDataBaseUrl = "https://raw.githubusercontent.com/" | append: site.repository | append: "/" %}
-{% endif %}
-{% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
-
-<span class='anchor' id='about-me'></span>
-<div class="about-hero-card">
-  <p class="about-hero-card__lead">I am currently an M.S. student at Korea University, co-advised by Prof. <a href="https://cs-people.bu.edu/donhk/">Donghyun Kim</a> and Prof. <a href="https://kdst.re.kr/">Suhyun Kim</a> at Kyung Hee University (formerly at KIST), and will join The University of Texas at Austin as an incoming Ph.D. student.</p>
-
-  <p><strong>My research interest is to leverage image/video generation models to solve challenging and complex real-world tasks, especially those related to human perception.</strong> I am driven by the philosophy of <strong>"Generate to Understand"</strong>, echoing Feynman's dictum, <em>"What I cannot create, I do not understand"</em>.</p>
-
-  <p>Beyond mere content creation, I aim to leverage generative models as fundamental instruments to solve complex real-world tasks. I believe that just as LLMs have evolved to reason and solve problems, vision generative models will ultimately serve as the key to perceiving, reasoning about, and understanding the physical world.</p>
+<div class="profile">
+  <img src="{{ '/assets/img/avatar.png' | relative_url }}" alt="Hyunsoo Kim">
+  {% include social.html %}
 </div>
 
-<!-- My research interests lie in generative modeling, diffusion models, and their applications to visual understanding and generation. Beyond various content generation, **my research interest is to leverage image/video generation models to solve challenging and complex real-world tasks, especially those related to human perception.** I believe that image/video generation models will ultimately solve most computer vision tasks that perceive, understand, and reason based on images or videos. In the Natural Language Processing (NLP) field, we have already seen Large Language Models (LLMs) go beyond simply generating natural (human-like) text to writing thousands of lines of code, solving extremely difficult mathematical problems, and even conducting deep research. I anticipate a similar evolution in the vision domain. Image/video generation models will become even more powerful, establishing themselves not merely as tools for generation, but as tools that solve many challenging multimodal perception, physics-based problems or real world applications such as inverse problems.
+I am a Ph.D. student in the Department of Electrical and Computer Engineering at [The University of Texas at Austin](https://www.ece.utexas.edu/), advised by Prof. [Guandao Yang](https://www.guandaoyang.com/) and Prof. [Diana Marculescu](https://users.ece.utexas.edu/~dianam/). Before joining UT Austin, I received my M.S. in Artificial Intelligence from Korea University, where I was co-advised by Prof. [Donghyun Kim](https://cs-people.bu.edu/donhk/) and Prof. [Suhyun Kim](https://kdst.re.kr/), and my B.S. in Statistics from Inha University.
 
-**Generate to Understand.** My long-term goal is to build intelligent systems that can understand the real world in ways human would. To achieve this, generative models are the most powerful and essential instruments for approximating the complex distributions of the physical world, which directly echoes Feynman's dictum, *"What I cannot create, I do not understand"*. Namely, my research philosophy is "Generate to Understand". To truly understand a system; whether it be the data manifold, the behavior of a deep neural network, or the physical real-world; we must be able to synthesize it, approximate its representations, and reconstruct it. Given this philosophy, how can we best utilize and advance generative models as fundamental instruments for understanding, and which challenging real-world problems can we solve by doing so? -->
+**My research aims to leverage image and video generation models to solve challenging real-world tasks, especially those related to human perception.** I am driven by the philosophy of **"Generate to Understand"**, echoing Feynman's dictum, *"What I cannot create, I do not understand."*
 
-<p class="about-contact">Email: <em>climba (at) korea (dot) edu</em> <span class="about-contact__divider">|</span> <a href="images/HyunsooKim_CV_1217.pdf">Curriculum Vitae</a></p>
+Beyond content creation, I see generative models as fundamental instruments for perceiving, reasoning about, and understanding the physical world. Just as large language models have grown from producing fluent text into systems that reason and solve problems, I believe vision generative models will become the key to understanding the world we live in.
 
-# 📝 Publications 
+<p class="contact-line">Email: <em>climba (at) utexas (dot) edu</em> &nbsp;·&nbsp; <a href="{{ '/assets/files/curriculum_vitae3.pdf' | relative_url }}">Curriculum Vitae</a></p>
 
-<div class="publication-list">
-  <article class="publication-card publication-card--preprint">
-    <div class="publication-card__header">
-      <span class="pub-badge pub-badge--preprint" style="display:inline-block;padding:0.28rem 0.7rem;border-radius:999px;border:1px solid rgba(154,90,0,0.12);background:rgba(212,138,37,0.14);color:#9a5a00;font-size:0.78em;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">preprint</span>
-    </div>
-    <div class="publication-card__title-row">
-      <h3 class="publication-card__title">Safety-Aware Image-to-Image Translation without Paired Data</h3>
-      <div class="publication-card__links publication-card__links--inline">
-        <a href="https://gustn9609.github.io/"><i class="ai ai-arxiv" aria-hidden="true"></i><span>arxiv</span></a>
-      </div>
-    </div>
-    <p class="publication-card__authors"><strong>Hyunsoo Kim</strong>, Wonjun Lee, Donghyun Kim, Suhyun Kim.</p>
-  </article>
+## news
 
-  <article class="publication-card publication-card--preprint">
-    <div class="publication-card__header">
-      <span class="pub-badge pub-badge--preprint" style="display:inline-block;padding:0.28rem 0.7rem;border-radius:999px;border:1px solid rgba(154,90,0,0.12);background:rgba(212,138,37,0.14);color:#9a5a00;font-size:0.78em;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">preprint</span>
-    </div>
-    <div class="publication-card__title-row">
-      <h3 class="publication-card__title">Consistency-Preserving Concept Erasure via Unsafe-Safe Pairing and Directional Fisher-weighted Adaptation</h3>
-      <div class="publication-card__links publication-card__links--inline">
-        <a href="https://arxiv.org/abs/2602.05339"><i class="ai ai-arxiv" aria-hidden="true"></i><span>arxiv</span></a>
-      </div>
-    </div>
-    <p class="publication-card__authors">Yongwoo Kim*, Sungmin Cha*, <strong>Hyunsoo Kim</strong>, Jaewon Lee, Donghyun Kim. <span class="publication-card__note">(*: Equal contribution)</span></p>
-  </article>
+{% include news.html %}
 
-  <article class="publication-card publication-card--eccv">
-    <div class="publication-card__header">
-      <span class="pub-badge pub-badge--eccv" style="display:inline-block;padding:0.28rem 0.7rem;border-radius:999px;border:1px solid rgba(138,21,56,0.12);background:rgba(138,21,56,0.12);color:#8a1538;font-size:0.78em;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">ECCV 2026</span>
-    </div>
-    <div class="publication-card__title-row">
-      <h3 class="publication-card__title">Correlation-Weighted Multi-Reward Optimization for Compositional Generation</h3>
-      <div class="publication-card__links publication-card__links--inline">
-        <a href="https://arxiv.org/abs/2603.18528"><i class="ai ai-arxiv" aria-hidden="true"></i><span>arxiv</span></a>
-      </div>
-    </div>
-    <p class="publication-card__authors">Jungmyung Wi, <strong>Hyunsoo Kim</strong>, Donghyun Kim.</p>
-  </article>
+## selected publications
 
-  <article class="publication-card publication-card--eccv">
-    <div class="publication-card__header">
-      <span class="pub-badge pub-badge--eccv" style="display:inline-block;padding:0.28rem 0.7rem;border-radius:999px;border:1px solid rgba(138,21,56,0.12);background:rgba(138,21,56,0.12);color:#8a1538;font-size:0.78em;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">ECCV 2026</span>
-    </div>
-    <div class="publication-card__title-row">
-      <h3 class="publication-card__title">Self-Improving Diffusion Classifiers with Minority Preference Optimization</h3>
-      <div class="publication-card__links publication-card__links--inline">
-        <a href="https://gustn9609.github.io/"><i class="ai ai-arxiv" aria-hidden="true"></i><span>arxiv</span></a>
-      </div>
-    </div>
-    <p class="publication-card__authors"><strong>Hyunsoo Kim*</strong>, Jungmyung Wi*, Soobin Um, Donghyun Kim†, Suhyun Kim†.</p>
-  </article>
+{% assign pubs = site.data.publications.main | where: "selected", true %}
+{% include publications.html %}
 
-  <article class="publication-card publication-card--icml">
-    <div class="publication-card__header">
-      <span class="pub-badge pub-badge--icml" style="display:inline-block;padding:0.28rem 0.7rem;border-radius:999px;border:1px solid rgba(11,87,208,0.12);background:rgba(26,115,232,0.14);color:#0b57d0;font-size:0.78em;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">ICML 2025</span>
-    </div>
-    <div class="publication-card__title-row">
-      <h3 class="publication-card__title">When Model Knowledge meets Diffusion Model: Diffusion-assisted Data-free Image Synthesis with Alignment of Domain and Class</h3>
-      <div class="publication-card__links publication-card__links--inline">
-        <a href="https://kdst-team.github.io/DDIS/">project</a>
-        <a href="https://arxiv.org/abs/2506.15381"><i class="ai ai-arxiv" aria-hidden="true"></i><span>arxiv</span></a>
-      </div>
-    </div>
-    <p class="publication-card__authors">Yujin Kim*, <strong>Hyunsoo Kim*</strong>, Hyunsoo J. Kim, Suhyun Kim. <span class="publication-card__note">(*: Equal contribution)</span></p>
-  </article>
+<p><a href="{{ '/publications/' | relative_url }}">See all publications →</a></p>
 
-  <article class="publication-card publication-card--cvpr">
-    <div class="publication-card__header">
-      <span class="pub-badge pub-badge--cvpr" style="display:inline-block;padding:0.28rem 0.7rem;border-radius:999px;border:1px solid rgba(13,107,86,0.12);background:rgba(20,134,109,0.14);color:#0d6b56;font-size:0.78em;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">CVPR 2025</span>
-    </div>
-    <div class="publication-card__title-row">
-      <h3 class="publication-card__title">Difference Inversion: Interpolate and Isolate the Difference with Token Consistency for Image Analogy Generation</h3>
-      <div class="publication-card__links publication-card__links--inline">
-        <a href="https://kdst-team.github.io/DifferenceInversion/">project</a>
-        <a href="https://arxiv.org/abs/2506.07750"><i class="ai ai-arxiv" aria-hidden="true"></i><span>arxiv</span></a>
-      </div>
-    </div>
-    <p class="publication-card__authors"><strong>Hyunsoo Kim</strong>, Donghyun Kim†, Suhyun Kim†.</p>
-  </article>
-</div>
+## education
 
-# 💻 Work Experience
-- *2024.09 - Present*, Korea Institute of Science and Technology, Graduate Researcher, Seoul, Korea.
-- *2024.03 - 2024.06*, Korea Institute of Science and Technology, Undergraduate Research Intern, Seoul, Korea.
-<!-- Add your work experience here -->
+<ul class="entry-list">
+  <li>
+    <span class="entry__when">2026 &ndash; present</span>
+    <p class="entry__what"><strong>Ph.D. in Electrical and Computer Engineering</strong><span class="entry__meta">The University of Texas at Austin</span></p>
+  </li>
+  <li>
+    <span class="entry__when">2024 &ndash; 2026</span>
+    <p class="entry__what"><strong>M.S. in Artificial Intelligence</strong><span class="entry__meta">Korea University</span></p>
+  </li>
+  <li>
+    <span class="entry__when">2018 &ndash; 2024</span>
+    <p class="entry__what"><strong>B.S. in Statistics</strong><span class="entry__meta">Inha University</span></p>
+  </li>
+</ul>
 
-# 🤝 Academic Services
-- Conference reviewer: `AAAI`, `ICLR`, `CVPR`
-<!-- Add your academic services here -->
+## experience
 
-# 📖 Educations
-
-- *2024.09 - Present*, Korea University, M.S. in Artificial Intelligence (in progress).
-- *2018.03 - 2024.08*, Inha University, B.S. in Statistics.
-
-<!-- # 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/) -->
+<ul class="entry-list">
+  <li>
+    <span class="entry__when">2024 &ndash; 2026</span>
+    <p class="entry__what"><strong>Graduate Researcher</strong><span class="entry__meta">Korea Institute of Science and Technology (KIST), Seoul, Korea</span></p>
+  </li>
+  <li>
+    <span class="entry__when">2024</span>
+    <p class="entry__what"><strong>Undergraduate Research Intern</strong><span class="entry__meta">Korea Institute of Science and Technology (KIST), Seoul, Korea</span></p>
+  </li>
+</ul>

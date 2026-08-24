@@ -1,0 +1,22 @@
+<div class="pub-list">
+  {% for pub in pubs %}
+  <div class="pub">
+    <div class="pub__thumb">
+      <img src="{{ pub.image | default: '/assets/img/placeholder.png' | relative_url }}" alt="{{ pub.title }}">
+      {% if pub.badge %}<span class="pub__badge">{{ pub.badge }}</span>{% endif %}
+    </div>
+    <div class="pub__body">
+      <p class="pub__title">{{ pub.title }}</p>
+      <p class="pub__authors">{{ pub.authors }}</p>
+      <p class="pub__venue">{{ pub.venue }}{% if pub.note %} <span class="pub__note">({{ pub.note }})</span>{% endif %}</p>
+      <div class="pub__links">
+        {% if pub.arxiv %}<a href="{{ pub.arxiv }}">arXiv</a>{% endif %}
+        {% if pub.pdf %}<a href="{{ pub.pdf }}">PDF</a>{% endif %}
+        {% if pub.code %}<a href="{{ pub.code }}">code</a>{% endif %}
+        {% if pub.page %}<a href="{{ pub.page }}">project page</a>{% endif %}
+        {% if pub.bibtex %}<a href="{{ pub.bibtex }}">bibtex</a>{% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
