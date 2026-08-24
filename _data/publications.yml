@@ -20,8 +20,10 @@ main:
     authors: "Jungmyung Wi, <span class='me'>Hyunsoo Kim</span>, Donghyun Kim"
     venue: "European Conference on Computer Vision <strong>(ECCV)</strong>, 2026."
     badge: "ECCV 2026"
-    image: /assets/img/placeholder.png
+    image: /assets/img/CMO_teaser.png
     arxiv: https://arxiv.org/abs/2603.18528
+    code: https://github.com/TheDarkKnight-21th/CMO
+    page: https://thedarkknight-21th.github.io/CMO/
     selected: true
 
   - title: "Self-Improving Diffusion Classifiers with Minority Preference Optimization"
@@ -29,7 +31,10 @@ main:
     venue: "European Conference on Computer Vision <strong>(ECCV)</strong>, 2026."
     note: "*: equal contribution, &#8224;: equal advising"
     badge: "ECCV 2026"
-    image: /assets/img/placeholder.png
+    image: /assets/img/MiPO_teaser.png
+    arxiv: https://arxiv.org/abs/2607.03770
+    code: https://github.com/gustn9609/MiPO
+    page: https://thedarkknight-21th.github.io/MiPO/
     selected: true
 
   - title: "When Model Knowledge meets Diffusion Model: Diffusion-assisted Data-free Image Synthesis with Alignment of Domain and Class"

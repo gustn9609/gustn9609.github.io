@@ -13,7 +13,7 @@ redirect_from:
   {% include social.html %}
 </div>
 
-I am a Ph.D. student in the Department of Electrical and Computer Engineering at [The University of Texas at Austin](https://www.ece.utexas.edu/), advised by Prof. [Guandao Yang](https://www.guandaoyang.com/) and Prof. [Diana Marculescu](https://users.ece.utexas.edu/~dianam/). Before joining UT Austin, I received my M.S. in Artificial Intelligence from Korea University, where I was co-advised by Prof. [Donghyun Kim](https://cs-people.bu.edu/donhk/) and Prof. [Suhyun Kim](https://kdst.re.kr/), and my B.S. in Statistics from Inha University.
+I am a Ph.D. student in the Department of Electrical and Computer Engineering at [The University of Texas at Austin](https://www.ece.utexas.edu/), advised by Prof. [Guandao Yang](https://www.guandaoyang.com/) and Prof. [Diana Marculescu](https://users.ece.utexas.edu/~dianam/). Before joining UT Austin, I received my M.S. in Artificial Intelligence from Korea University, where I was co-advised by Prof. [Donghyun Kim](https://cs-people.bu.edu/donhk/) and Prof. [Suhyun Kim](https://kdst.re.kr/).
 
 **My research aims to leverage image and video generation models to solve challenging real-world tasks, especially those related to human perception.** I am driven by the philosophy of **"Generate to Understand"**, echoing Feynman's dictum, *"What I cannot create, I do not understand."*
 

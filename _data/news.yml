@@ -1,15 +1,15 @@
 # Newest first. `content` accepts inline HTML.
 - date: "Aug 2026"
-  content: "Started my Ph.D. in the ECE department at UT Austin, advised by Prof. <a href='https://www.guandaoyang.com/'>Guandao Yang</a> and Prof. <a href='https://users.ece.utexas.edu/~dianam/'>Diana Marculescu</a>."
+  content: "Started my Ph.D. at UT Austin, co-advised by Prof. <a href='https://www.guandaoyang.com/'>Guandao Yang</a> and Prof. <a href='https://users.ece.utexas.edu/~dianam/'>Diana Marculescu</a>."
 
 - date: "Aug 2026"
   content: "Received my M.S. in Artificial Intelligence from Korea University."
 
 - date: "Jun 2026"
-  content: "Two papers are accepted to <strong>ECCV 2026</strong>! See you in Malmö!"
+  content: "Two papers are accepted to <strong>ECCV 2026</strong>! See you in Malmö! &#x1F1F8;&#x1F1EA;"
 
 - date: "May 2025"
-  content: "Our paper on data-free image synthesis (<a href='https://kdst-team.github.io/DDIS/'>DDIS</a>) is accepted to <strong>ICML 2025</strong>!"
+  content: "Our paper on data-free image synthesis (<a href='https://kdst-team.github.io/DDIS/'>DDIS</a>) is accepted to <strong>ICML 2025</strong>! See you in Vancouver! &#x1F1E8;&#x1F1E6;"
 
 - date: "Feb 2025"
-  content: "Our paper on image analogy generation (<a href='https://kdst-team.github.io/DifferenceInversion/'>Difference Inversion</a>) is accepted to <strong>CVPR 2025</strong>!"
+  content: "Our paper on image analogy generation (<a href='https://kdst-team.github.io/DifferenceInversion/'>Difference Inversion</a>) is accepted to <strong>CVPR 2025</strong>! See you in Nashville! &#x1F1FA;&#x1F1F8;"
