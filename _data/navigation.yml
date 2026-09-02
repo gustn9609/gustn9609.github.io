@@ -9,5 +9,8 @@ main:
   - title: "teaching"
     url: "/teaching/"
 
+  - title: "study"
+    url: "/diffusion-flow-study/"
+
   - title: "cv"
     url: "/assets/files/curriculum_vitae3.pdf"

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Diffusion &amp; Flow Study</title>
+<meta name="description" content="A weekly paper-reading group on diffusion- and flow-based generative models. Members, talk log, and reading list." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#F6F7FA;
+    --surface:#FFFFFF;
+    --ink:#0D1526;
+    --ink-soft:#525E70;
+    --ink-faint:#7A8496;
+    --line:#E4E8EF;
+    --accent:#2742D6;
+    --accent-deep:#1B31A8;
+    --accent-tint:#EDF0FE;
+    --serif:"STIX Two Text", Georgia, serif;
+    --sans:"IBM Plex Sans","Noto Sans KR",-apple-system,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --maxw:880px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:20;
+    background:color-mix(in srgb, var(--paper) 86%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:56px}
+  .nav-brand{font-family:var(--serif);font-weight:700;font-size:1.02rem;text-decoration:none;letter-spacing:.01em}
+  .nav-brand .amp{font-style:italic;color:var(--accent)}
+  .nav-links{display:flex;gap:22px}
+  .nav-links a{
+    text-decoration:none;font-size:.86rem;font-weight:500;color:var(--ink-soft);
+  }
+  .nav-links a:hover{color:var(--accent-deep)}
+  @media(max-width:560px){.nav-links{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:var(--paper)}
+  .hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  .hero::after{content:"";position:absolute;inset:auto 0 0 0;height:72px;background:linear-gradient(to bottom, transparent, var(--paper));pointer-events:none}
+  .hero-inner{position:relative;z-index:1;padding:84px 24px 96px;max-width:var(--maxw);margin:0 auto}
+  .hero-eq{
+    font-family:var(--mono);font-size:.8rem;color:var(--accent-deep);
+    letter-spacing:.04em;margin-bottom:18px;
+  }
+  .hero h1{
+    font-family:var(--serif);font-weight:700;
+    font-size:clamp(2.4rem, 6.4vw, 3.9rem);
+    line-height:1.06;letter-spacing:-.012em;
+  }
+  .hero h1 .amp{font-style:italic;font-weight:600;color:var(--accent)}
+  .hero-sub{
+    margin-top:20px;max-width:34em;
+    font-size:1.02rem;color:var(--ink-soft);
+  }
+  .hero-meta{
+    margin-top:30px;display:flex;flex-wrap:wrap;gap:8px 10px;
+  }
+  .meta-pill{
+    font-family:var(--mono);font-size:.74rem;letter-spacing:.02em;
+    color:var(--ink-soft);
+    border:1px solid var(--line);background:var(--surface);
+    padding:5px 11px;border-radius:999px;
+  }
+  .meta-pill b{color:var(--ink);font-weight:500}
+
+  /* ---------- sections ---------- */
+  section{padding:64px 0 8px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+  .sec-head h2{font-family:var(--serif);font-weight:700;font-size:1.7rem;letter-spacing:-.01em}
+  .sec-kicker{font-family:var(--mono);font-size:.72rem;color:var(--accent-deep);letter-spacing:.1em;text-transform:uppercase}
+  .sec-desc{color:var(--ink-soft);font-size:.94rem;max-width:40em;margin-bottom:26px}
+
+  /* ---------- members ---------- */
+  .members{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));
+    gap:10px;margin-bottom:40px;
+  }
+  .member{
+    text-align:left;border:1px solid var(--line);background:var(--surface);
+    border-radius:10px;padding:14px 15px 12px;cursor:pointer;
+    font-family:inherit;transition:border-color .15s, box-shadow .15s;
+  }
+  .member:hover{border-color:var(--accent);box-shadow:0 1px 0 var(--accent)}
+  .member-name{font-weight:600;font-size:1rem;letter-spacing:-.01em}
+  .member-aff{font-family:var(--mono);font-size:.7rem;color:var(--ink-faint);margin-top:4px}
+  .member-role{
+    display:inline-block;margin-top:8px;
+    font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--accent-deep);background:var(--accent-tint);
+    border-radius:4px;padding:2px 6px;
+  }
+  .member-hint{font-family:var(--mono);font-size:.7rem;color:var(--ink-faint);margin-bottom:44px}
+
+  /* ---------- talks ---------- */
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
+  .chip{
+    font-family:var(--sans);font-size:.82rem;font-weight:500;cursor:pointer;
+    color:var(--ink-soft);background:var(--surface);
+    border:1px solid var(--line);border-radius:999px;padding:5px 13px;
+    transition:all .12s;
+  }
+  .chip:hover{border-color:var(--accent);color:var(--accent-deep)}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+  .chip .n{font-family:var(--mono);font-size:.7rem;opacity:.65;margin-left:4px}
+
+  .t-cap{font-family:var(--mono);font-size:.7rem;color:var(--ink-faint);letter-spacing:.03em}
+  .t-cap.top{margin-bottom:14px}
+  .t-cap.bottom{margin-top:14px;margin-bottom:56px}
+
+  .talks{list-style:none;position:relative;padding-left:26px}
+  .talks::before{
+    content:"";position:absolute;left:5px;top:6px;bottom:6px;
+    width:2px;background:linear-gradient(to bottom,var(--accent) 0%,var(--line) 45%);
+    border-radius:2px;
+  }
+  .talk{position:relative;padding:0 0 34px 4px}
+  .talk-node{
+    position:absolute;left:-26px;top:5px;width:12px;height:12px;border-radius:50%;
+    background:var(--paper);border:2.5px solid var(--accent);
+  }
+  .talk.is-latest .talk-node{background:var(--accent);box-shadow:0 0 0 4px var(--accent-tint)}
+  .talk-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:7px}
+  .talk-date{font-family:var(--mono);font-size:.78rem;color:var(--ink-soft);letter-spacing:.02em}
+  .presenter{
+    font-size:.78rem;font-weight:500;color:var(--ink);
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:999px;padding:1.5px 10px;
+  }
+  .tag-latest{
+    font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent-deep);background:var(--accent-tint);border-radius:4px;padding:2px 7px;
+  }
+  .paper{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;padding:2px 0}
+  .paper-title{
+    font-family:var(--serif);font-weight:600;font-size:1.06rem;line-height:1.4;
+    color:var(--ink);text-decoration:none;
+    background-image:linear-gradient(var(--accent),var(--accent));
+    background-size:0% 1.5px;background-repeat:no-repeat;background-position:0 100%;
+    transition:background-size .18s;
+  }
+  a.paper-title:hover{color:var(--accent-deep);background-size:100% 1.5px}
+  .ext{font-family:var(--mono);font-size:.72rem;color:var(--accent);margin-left:2px}
+  .talk-note{margin-top:5px;font-size:.83rem;color:var(--ink-faint)}
+  .talk-empty{padding:24px 4px;color:var(--ink-faint);font-size:.9rem}
+
+  .badge{
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.03em;white-space:nowrap;
+    border-radius:5px;padding:2.5px 7px;border:1px solid;position:relative;top:-2px;
+  }
+  .v-neurips {color:#6941C6;background:#F4F0FF;border-color:#E4DBFA}
+  .v-iclr    {color:#175CD3;background:#EFF6FF;border-color:#D5E4FA}
+  .v-cvpr    {color:#0E7569;background:#ECFDF7;border-color:#CBEFE4}
+  .v-icml    {color:#B54708;background:#FFF8EB;border-color:#F6E3C2}
+  .v-eccv    {color:#3F7A1F;background:#F4FBEC;border-color:#DFF0CB}
+  .v-preprint{color:#5A6372;background:#F1F3F7;border-color:#E1E5EC}
+
+  /* ---------- reading list ---------- */
+  .reading{list-style:none;border-top:1px solid var(--line);margin-bottom:56px}
+  .reading li{
+    display:flex;align-items:baseline;gap:16px;
+    padding:11px 2px;border-bottom:1px solid var(--line);
+  }
+  .r-date{font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);flex:0 0 58px}
+  .r-title{flex:1;font-family:var(--serif);font-size:.98rem;font-weight:400;line-height:1.45}
+  .r-title a{text-decoration:none}
+  .r-title a:hover{color:var(--accent-deep);text-decoration:underline;text-underline-offset:3px}
+  @media(max-width:560px){
+    .reading li{flex-wrap:wrap;gap:4px 12px}
+    .r-title{flex-basis:100%;order:3}
+  }
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:28px 0 44px;margin-top:8px}
+  .foot{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;
+    font-family:var(--mono);font-size:.72rem;color:var(--ink-faint)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="#top">Diffusion <span class="amp">&amp;</span> Flow Study</a>
+    <div class="nav-links">
+      <a href="#members">Members</a>
+      <a href="#talks">Talks</a>
+      <a href="#reading">Reading list</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="flowfield" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <p class="hero-eq">x&#8321; = x&#8320; + &int;&#8320;&sup1; v&theta;(x&#8348;, t)&thinsp;dt</p>
+    <h1>Diffusion <span class="amp">&amp;</span> Flow Study</h1>
+    <p class="hero-sub">
+      A weekly paper-reading group on diffusion- and flow-based generative models —
+      mean flows, flow maps, one-step generation, and whatever arXiv drops next.
+      We meet online every Monday.
+    </p>
+    <div class="hero-meta" id="heroMeta"></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="members">
+    <div class="sec-head"><span class="sec-kicker">Who</span><h2>Members</h2></div>
+    <p class="sec-desc">Seven researchers across five schools. Talks rotate through everyone.</p>
+    <div class="members" id="memberGrid"></div>
+    <p class="member-hint">// click a member to filter their talks</p>
+  </section>
+
+  <section id="talks">
+    <div class="sec-head"><span class="sec-kicker">Log</span><h2>Talks</h2></div>
+    <p class="sec-desc">Every session since March 2026, newest first, with the venue of each paper.</p>
+    <div class="filters" id="filters" role="group" aria-label="Filter talks by presenter"></div>
+    <p class="t-cap top">t&nbsp;=&nbsp;1&ensp;·&ensp;now</p>
+    <ol class="talks" id="talkList"></ol>
+    <p class="t-cap bottom">t&nbsp;=&nbsp;0&ensp;·&ensp;first session, Mar 2026</p>
+  </section>
+
+  <section id="reading">
+    <div class="sec-head"><span class="sec-kicker">Queue</span><h2>Reading list</h2></div>
+    <p class="sec-desc">The core list we work through, refreshed as new papers land.</p>
+    <ul class="reading" id="readingList"></ul>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>Diffusion &amp; Flow Study — since 2026.03</span>
+    <span>last updated 2026.08.24</span>
+  </div>
+</footer>
+
+<script>
+/* ================================================================
+   DATA — edit these three arrays to update the site.
+   venue classes: v-neurips  v-iclr  v-cvpr  v-icml  v-eccv  v-preprint
+   ================================================================ */
+
+const MEMBERS = [
+  { name: "김현수", aff: "UT Austin",             role: "Organizer" },
+  { name: "옥윤승", aff: "Kyung Hee University" },
+  { name: "준석",   aff: "Yonsei University" },
+  { name: "김도환", aff: "KAIST" },
+  { name: "권기중", aff: "KAIST" },
+  { name: "유형준", aff: "KAIST" },
+  { name: "윤성준", aff: "Korea University" },
+];
+
+const TALKS = [ // newest first
+  { date: "2026.08.24", presenter: "윤성준", papers: [
+      { title: "Adjoint Schrödinger Bridge Sampler", venue: "NeurIPS 2025", v: "v-neurips", url: "https://arxiv.org/abs/2506.22565" },
+  ]},
+  { date: "2026.08.10", presenter: "옥윤승", papers: [
+      { title: "Offline Preference Optimization for Rectified Flow with Noise-Tracked Pairs", venue: "ICML 2026", v: "v-icml", url: "https://arxiv.org/abs/2605.09433" },
+  ], note: "PNAPO" },
+  { date: "2026.08.03", presenter: "유형준", papers: [
+      { title: "Diff2Flow: Training Flow Matching Models via Diffusion Model Alignment", venue: "CVPR 2025", v: "v-cvpr", url: "https://arxiv.org/abs/2506.02221" },
+  ]},
+  { date: "2026.07.20", presenter: "권기중", papers: [
+      { title: "DDT: Decoupled Diffusion Transformer", venue: "CVPR 2026", v: "v-cvpr", url: "https://arxiv.org/abs/2504.05741" },
+      { title: "DeCo: Frequency-Decoupled Pixel Diffusion for End-to-End Image Generation", venue: "CVPR 2026 Highlight", v: "v-cvpr", url: "https://arxiv.org/abs/2511.19365" },
+  ]},
+  { date: "2026.07.13", presenter: "김도환", papers: [
+      { title: "Representation Alignment for Just Image Transformers is not Easier than You Think", venue: "ECCV 2026", v: "v-eccv", url: "https://arxiv.org/abs/2603.14366" },
+  ], note: "PixelREPA" },
+  { date: "2026.06.29", presenter: "김현수", papers: [
+      { title: "Flow-OPD: On-Policy Distillation for Flow Matching Models", venue: "arXiv", v: "v-preprint", url: "https://arxiv.org/abs/2605.08063" },
+  ]},
+  { date: "2026.06.22", presenter: "준석", papers: [
+      { title: "PixelDiT: Pixel Diffusion Transformers for Image Generation", venue: "CVPR 2026", v: "v-cvpr", url: "https://arxiv.org/abs/2511.20645" },
+  ]},
+  { date: "2026.06.15", presenter: "윤성준", papers: [
+      { title: "Flowing with Confidence", venue: "arXiv", v: "v-preprint", url: "https://arxiv.org/abs/2605.18472" },
+  ], note: "Flow Matching with Confidence (FMwC)" },
+  { date: "2026.06.01", presenter: "유형준", papers: [
+      { title: "On the Wasserstein Gradient Flow Interpretation of Drifting Models", venue: "arXiv", v: "v-preprint", url: "https://arxiv.org/abs/2605.05118" },
+  ]},
+  { date: "2026.05.18", presenter: "옥윤승", papers: [
+      { title: "GLASS Flows: Transition Sampling for Alignment of Flow and Diffusion Models", venue: "arXiv", v: "v-preprint", url: "https://arxiv.org/abs/2509.25170" },
+  ]},
+  { date: "2026.05.11", presenter: "권기중", papers: [
+      { title: "Generative Modeling via Drifting", venue: "Preprint", v: "v-preprint", url: "https://openreview.net/forum?id=kH8yxb9xCg" },
+  ]},
+  { date: "2026.04.27", presenter: "김도환", papers: [
+      { title: "One-step Latent-free Image Generation with Pixel Mean Flows", venue: "ICML 2026", v: "v-icml", url: "https://arxiv.org/abs/2601.22158" },
+  ], note: "with a Back to Basics recap and x-loss discussion" },
+  { date: "2026.04.13", presenter: "준석", papers: [
+      { title: "SiT: Exploring Flow and Diffusion-based Generative Models with Scalable Interpolant Transformers", venue: "ECCV 2024", v: "v-eccv", url: "https://arxiv.org/abs/2401.08740" },
+      { title: "Back to Basics: Let Denoising Generative Models Denoise", venue: "arXiv", v: "v-preprint", url: "https://arxiv.org/abs/2511.13720" },
+  ], note: "JiT" },
+  { date: "2026.04.06", presenter: "김현수", papers: [
+      { title: "Decoupled MeanFlow: Turning Flow Models into Flow Maps for Accelerated Sampling", venue: "ICLR 2026", v: "v-iclr", url: "https://arxiv.org/abs/2510.24474" },
+  ]},
+  { date: "2026.03.23", presenter: "준석", papers: [
+      { title: "Mean Flows for One-step Generative Modeling", venue: "NeurIPS 2025 Oral", v: "v-neurips", url: "https://arxiv.org/abs/2505.13447" },
+      { title: "Improved Mean Flows: On the Challenges of Fastforward Generative Models", venue: "CVPR 2026", v: "v-cvpr", url: "https://arxiv.org/abs/2512.02012" },
+  ]},
+];
+
+const READING = [
+  { date: "2025.05", title: "Mean Flows for One-step Generative Modeling", venue: "NeurIPS 2025 Oral", v: "v-neurips", url: "https://arxiv.org/abs/2505.13447" },
+  { date: "2025.10", title: "Equilibrium Matching: Generative Modeling with Implicit Energy-Based Models", venue: "arXiv", v: "v-preprint" },
+  { date: "2025.10", title: "Decoupled MeanFlow: Turning Flow Models into Flow Maps for Accelerated Sampling", venue: "ICLR 2026", v: "v-iclr", url: "https://arxiv.org/abs/2510.24474" },
+  { date: "2025.11", title: "Entangled Schrödinger Bridge Matching", venue: "arXiv", v: "v-preprint" },
+  { date: "2025.11", title: "Back to Basics: Let Denoising Generative Models Denoise", venue: "arXiv", v: "v-preprint", url: "https://arxiv.org/abs/2511.13720" },
+  { date: "2025.11", title: "Terminal Velocity Matching", venue: "ICLR 2026", v: "v-iclr", url: "https://arxiv.org/abs/2511.19797" },
+  { date: "2025.12", title: "Improved Mean Flows: On the Challenges of Fastforward Generative Models", venue: "CVPR 2026", v: "v-cvpr", url: "https://arxiv.org/abs/2512.02012" },
+  { date: "2025.12", title: "SoFlow: Solution Flow Models for One-Step Generative Modeling", venue: "ICLR 2026", v: "v-iclr" },
+  { date: "2026.01", title: "One-step Latent-free Image Generation with Pixel Mean Flows", venue: "ICML 2026", v: "v-icml", url: "https://arxiv.org/abs/2601.22158" },
+  { date: "2026.02", title: "Latent Forcing: Reordering the Diffusion Trajectory for Pixel-Space Image Generation", venue: "arXiv", v: "v-preprint", url: "https://arxiv.org/abs/2602.11401" },
+  { date: "2026.03", title: "Self-Supervised Flow Matching for Scalable Multi-Modal Synthesis", venue: "arXiv", v: "v-preprint", url: "https://arxiv.org/abs/2603.06507" },
+  { date: "2026.03", title: "A Unified View of Drifting and Score-Based Models", venue: "arXiv", v: "v-preprint" },
+  { date: "2026.03", title: "COT-FM: Cluster-wise Optimal Transport Flow Matching", venue: "CVPR 2026", v: "v-cvpr" },
+  { date: "2026.03", title: "Representation Alignment for Just Image Transformers is not Easier than You Think", venue: "ECCV 2026", v: "v-eccv", url: "https://arxiv.org/abs/2603.14366" },
+];
+
+/* ================================================================
+   RENDERING
+   ================================================================ */
+const $ = (sel) => document.querySelector(sel);
+const esc = (s) => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+
+/* hero meta */
+(function heroMeta(){
+  const nPapers = TALKS.reduce((a,t)=>a+t.papers.length,0);
+  const pills = [
+    `<b>${MEMBERS.length}</b> members`,
+    `<b>${TALKS.length}</b> sessions`,
+    `<b>${nPapers}</b> papers`,
+    `Mondays <b>23:00 KST</b>`,
+    `online`,
+  ];
+  $("#heroMeta").innerHTML = pills.map(p=>`<span class="meta-pill">${p}</span>`).join("");
+})();
+
+/* members */
+(function members(){
+  $("#memberGrid").innerHTML = MEMBERS.map(m=>`
+    <button class="member" data-name="${esc(m.name)}" title="Show ${esc(m.name)}'s talks">
+      <div class="member-name">${esc(m.name)}</div>
+      <div class="member-aff">${esc(m.aff)}</div>
+      ${m.role ? `<span class="member-role">${esc(m.role)}</span>` : ""}
+    </button>`).join("");
+  document.querySelectorAll(".member").forEach(el=>{
+    el.addEventListener("click",()=>{
+      setFilter(el.dataset.name);
+      $("#talks").scrollIntoView({behavior:"smooth",block:"start"});
+    });
+  });
+})();
+
+/* talks + filters */
+let activeFilter = "all";
+
+function talkCount(name){ return TALKS.filter(t=>t.presenter===name).length; }
+
+function renderFilters(){
+  const chips = [
+    `<button class="chip" data-f="all" aria-pressed="${activeFilter==="all"}">All<span class="n">${TALKS.length}</span></button>`,
+    ...MEMBERS.map(m=>`<button class="chip" data-f="${esc(m.name)}" aria-pressed="${activeFilter===m.name}">${esc(m.name)}<span class="n">${talkCount(m.name)}</span></button>`)
+  ];
+  $("#filters").innerHTML = chips.join("");
+  document.querySelectorAll(".chip").forEach(el=>{
+    el.addEventListener("click",()=>setFilter(el.dataset.f));
+  });
+}
+
+function renderTalks(){
+  const list = TALKS.map((t,i)=>({...t, latest: i===0}))
+                    .filter(t=>activeFilter==="all"||t.presenter===activeFilter);
+  if(!list.length){
+    $("#talkList").innerHTML = `<li class="talk-empty">No talks yet.</li>`;
+    return;
+  }
+  $("#talkList").innerHTML = list.map(t=>`
+    <li class="talk${t.latest?" is-latest":""}">
+      <span class="talk-node" aria-hidden="true"></span>
+      <div class="talk-head">
+        <span class="talk-date">${t.date}</span>
+        <span class="presenter">${esc(t.presenter)}</span>
+        ${t.latest?`<span class="tag-latest">Latest</span>`:""}
+      </div>
+      ${t.papers.map(p=>`
+        <div class="paper">
+          ${p.url
+            ? `<a class="paper-title" href="${p.url}" target="_blank" rel="noopener">${esc(p.title)}<span class="ext">&nearr;</span></a>`
+            : `<span class="paper-title">${esc(p.title)}</span>`}
+          <span class="badge ${p.v}">${esc(p.venue)}</span>
+        </div>`).join("")}
+      ${t.note?`<div class="talk-note">${esc(t.note)}</div>`:""}
+    </li>`).join("");
+}
+
+function setFilter(f){
+  activeFilter = f;
+  renderFilters();
+  renderTalks();
+}
+setFilter("all");
+
+/* reading list */
+(function reading(){
+  $("#readingList").innerHTML = READING.map(r=>`
+    <li>
+      <span class="r-date">${r.date}</span>
+      <span class="r-title">${r.url
+        ? `<a href="${r.url}" target="_blank" rel="noopener">${esc(r.title)}</a>`
+        : esc(r.title)}</span>
+      <span class="badge ${r.v}">${esc(r.venue)}</span>
+    </li>`).join("");
+})();
+
+/* ================================================================
+   HERO FLOW FIELD — particles drifting along a velocity field,
+   noise (left) to data (right). Static streamlines when the user
+   prefers reduced motion.
+   ================================================================ */
+(function flowField(){
+  const canvas = $("#flowfield");
+  const ctx = canvas.getContext("2d");
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let W=0, H=0, dpr=1, particles=[], raf=null, t0=performance.now();
+
+  function field(x, y, ts){
+    const s = 0.010;
+    const a = Math.sin(x*s*1.35 + ts*0.00022) + Math.cos(y*s*1.7 - ts*0.00017)
+            + 0.6*Math.sin((x+y)*s*0.8 + ts*0.0001);
+    return a * 0.9; /* angle offset around rightward drift */
+  }
+
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio||1, 2);
+    W = canvas.offsetWidth; H = canvas.offsetHeight;
+    canvas.width = W*dpr; canvas.height = H*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.fillStyle = "#F6F7FA"; ctx.fillRect(0,0,W,H);
+    if(reduced){ drawStatic(); }
+    else{
+      particles = Array.from({length: Math.min(110, Math.floor(W/9))}, spawn);
+    }
+  }
+
+  function spawn(){
+    return { x: Math.random()*W, y: Math.random()*H, life: 60+Math.random()*180 };
+  }
+
+  function drawStatic(){
+    ctx.strokeStyle = "rgba(39,66,214,0.11)";
+    ctx.lineWidth = 1;
+    for(let i=0;i<130;i++){
+      let x = Math.random()*W, y = Math.random()*H;
+      ctx.beginPath(); ctx.moveTo(x,y);
+      for(let s=0;s<26;s++){
+        const a = field(x,y,0);
+        x += Math.cos(a)*2.4 + 1.5;  y += Math.sin(a)*2.4;
+        ctx.lineTo(x,y);
+      }
+      ctx.stroke();
+    }
+  }
+
+  function step(now){
+    const ts = now - t0;
+    ctx.fillStyle = "rgba(246,247,250,0.055)";
+    ctx.fillRect(0,0,W,H);
+    ctx.strokeStyle = "rgba(39,66,214,0.16)";
+    ctx.lineWidth = 1.1;
+    for(const p of particles){
+      const a = field(p.x, p.y, ts);
+      const nx = p.x + Math.cos(a)*1.1 + 0.75; /* rightward drift: noise -> data */
+      const ny = p.y + Math.sin(a)*1.1;
+      ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(nx,ny); ctx.stroke();
+      p.x = nx; p.y = ny; p.life--;
+      if(p.x > W+4 || p.y < -4 || p.y > H+4 || p.life <= 0){
+        p.x = -2; p.y = Math.random()*H; p.life = 60+Math.random()*180;
+      }
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  resize();
+  window.addEventListener("resize", resize);
+  if(!reduced){
+    raf = requestAnimationFrame(step);
+    document.addEventListener("visibilitychange", ()=>{
+      if(document.hidden){ cancelAnimationFrame(raf); raf=null; }
+      else if(!raf){ raf = requestAnimationFrame(step); }
+    });
+  }
+})();
+</script>
+</body>
+</html>
