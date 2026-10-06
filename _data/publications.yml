@@ -3,12 +3,11 @@
 main:
   - title: "Custom Forcing: Training-Free Subject Customization for Autoregressive Video Generation"
     authors: "Yunseung Ok*, <span class='me'>Hyunsoo Kim</span>*, Minseo Kim, Suhyun Kim&#8224;"
-    venue: "arXiv preprint, 2026."
+    venue: "Preprint"
     note: "*: equal contribution, &#8224;: corresponding author"
-    badge: "arXiv 2026"
-    image: /assets/img/CustomForcing_teaser.png
+    badge: "Preprint"
+    image: /assets/img/CustomForcing_teaser.png?v=2
     arxiv: https://arxiv.org/abs/2610.02914
-    pdf: https://arxiv.org/pdf/2610.02914
     page: https://gustn9609.github.io/custom-forcing/
     selected: true
 
