@@ -42,7 +42,7 @@ main:
     selected: true
 
   - title: "When Model Knowledge meets Diffusion Model: Diffusion-assisted Data-free Image Synthesis with Alignment of Domain and Class"
-    authors: "Yujin Kim*, <span class='me'>Hyunsoo Kim</span>*, Hyunsoo J. Kim, Suhyun Kim"
+    authors: "Yujin Kim*, <span class='me'>Hyunsoo Kim</span>*, Hyunwoo J. Kim, Suhyun Kim"
     venue: "International Conference on Machine Learning <strong>(ICML)</strong>, 2025."
     note: "*: equal contribution"
     badge: "ICML 2025"
