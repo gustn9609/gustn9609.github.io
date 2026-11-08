@@ -1,0 +1,19 @@
+{
+  "name": "Paper Studio",
+  "short_name": "Paper Studio",
+  "description": "개인 논문 연구 워크벤치",
+  "lang": "ko",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
