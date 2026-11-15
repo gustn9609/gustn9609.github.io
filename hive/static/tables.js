@@ -89,6 +89,9 @@
     ]);
 
   // ---------------- helpers for the SVG charts ----------------
+  const CSS = getComputedStyle(document.documentElement);
+  const V = (n) => CSS.getPropertyValue(n).trim();
+  const PAL = { cloud: V('--cloud'), dev: V('--device'), hive: V('--hive'), two: '#9aa0ac', design: V('--green'), ink: '#3c4150', axis: '#8b90a0', grid: '#eef0f4' };
   function el(tag, attrs, parent) {
     const e = document.createElementNS(NS, tag);
     for (const k in attrs) e.setAttribute(k, attrs[k]);
@@ -113,61 +116,64 @@
     const r = svg.getBoundingClientRect(), c = container.getBoundingClientRect(), vb = svg.viewBox.baseVal;
     return [x * r.width / vb.width + r.left - c.left, y * r.height / vb.height + r.top - c.top];
   }
+  const hexPts = (cx, cy, r) => { const p = []; for (let i = 0; i < 6; i++) { const a = -Math.PI / 2 + i * Math.PI / 3; p.push((cx + r * Math.cos(a)).toFixed(1) + ',' + (cy + r * Math.sin(a)).toFixed(1)); } return p.join(' '); };
 
   // ---------------- Fig. 1(b): quality against throughput ----------------
   (function scatter() {
     const box = document.getElementById('scatter');
     if (!box) return;
-    const C = { cloud: '#4E86B4', dev: '#D98A3D', two: '#8A8A8A', design: '#5E9C76', hive: '#C8372D' };
+    const C = { cloud: PAL.cloud, dev: PAL.dev, two: PAL.two, design: PAL.design, hive: PAL.hive };
     //   name                      fps   quality total J  cloud J group     label dx, dy, anchor
     const P = [
       ['Cloud only (14B)',          7.3,  7.09, 1141, 1141, 'cloud', [12, -4, 'start']],
       ['Device only (1.3B)',       20.4,  6.49,  349,    0, 'dev', [12, 14, 'start']],
-      ['Hybrid SD',                10.6,  6.60, 1030,  647, 'two', [0, 22, 'middle']],
+      ['Hybrid SD',                10.6,  6.60, 1030,  647, 'two', [0, 24, 'middle']],
       ['SDVG',                      6.8,  6.86, 1428,  742, 'two', [12, 2, 'start']],
       ['EC-Diff',                  11.6,  6.96,  956,  627, 'two', [12, 2, 'start']],
       ['Low-res cloud',            17.8,  5.73,  737,  null, 'design', [12, -2, 'start']],
       ['Cloud step + refine',      20.5,  6.52,  734,  null, 'design', [-12, -16, 'end']],
-      ['Periodic cloud',           23.6,  6.85,  602,  307, 'design', [0, 22, 'middle']],
-      ['HIVE (Ours)',              21.2,  7.07,  648,  398, 'hive', [0, -34, 'middle']],
+      ['Periodic cloud',           23.6,  6.85,  602,  307, 'design', [0, 24, 'middle']],
+      ['HIVE (Ours)',              21.2,  7.07,  648,  398, 'hive', [0, -36, 'middle']],
     ];
-    const W = 760, H = 400, m = { l: 62, r: 24, t: 20, b: 52 };
+    const W = 780, H = 410, m = { l: 64, r: 26, t: 22, b: 54 };
     const x0 = 5, x1 = 25.5, y0 = 5.6, y1 = 7.3;
     const X = (v) => m.l + (v - x0) / (x1 - x0) * (W - m.l - m.r);
     const Y = (v) => H - m.b - (v - y0) / (y1 - y0) * (H - m.t - m.b);
     const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' }, box);
-    const g = el('g', { 'font-family': 'Noto Sans, sans-serif', 'font-size': 13 }, svg);
-    // real-time region
-    el('rect', { x: X(16), y: m.t, width: X(x1) - X(16), height: H - m.t - m.b, fill: '#C8372D', opacity: 0.045 }, g);
+    const g = el('g', { 'font-size': 13 }, svg);
+    const defs = el('defs', {}, svg);
+    const lg0 = el('linearGradient', { id: 'rtgrad', x1: 0, x2: 1, y1: 0, y2: 0 }, defs);
+    el('stop', { offset: 0, 'stop-color': PAL.hive, 'stop-opacity': 0.09 }, lg0); el('stop', { offset: 1, 'stop-color': PAL.dev, 'stop-opacity': 0.05 }, lg0);
+    el('rect', { x: X(16), y: m.t, width: X(x1) - X(16), height: H - m.t - m.b, fill: 'url(#rtgrad)', rx: 6 }, g);
     for (let v = 10; v <= 25; v += 5) {
-      el('line', { x1: X(v), x2: X(v), y1: m.t, y2: H - m.b, stroke: '#eee' }, g);
-      text(g, X(v), H - m.b + 20, v, { 'text-anchor': 'middle', fill: '#76767e' });
+      el('line', { x1: X(v), x2: X(v), y1: m.t, y2: H - m.b, stroke: PAL.grid }, g);
+      text(g, X(v), H - m.b + 22, v, { 'text-anchor': 'middle', fill: PAL.axis });
     }
     for (let v = 5.75; v <= 7.26; v += 0.25) {
-      el('line', { x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), stroke: '#eee' }, g);
-      text(g, m.l - 10, Y(v) + 4, v.toFixed(2), { 'text-anchor': 'end', fill: '#76767e' });
+      el('line', { x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), stroke: PAL.grid }, g);
+      text(g, m.l - 10, Y(v) + 4, v.toFixed(2), { 'text-anchor': 'end', fill: PAL.axis });
     }
-    el('line', { x1: X(16), x2: X(16), y1: m.t, y2: H - m.b, stroke: '#C8372D', 'stroke-dasharray': '5 4', 'stroke-width': 1.3 }, g);
-    text(g, X(16) + 6, m.t + 14, 'real time (16 FPS)', { fill: '#C8372D', 'font-size': 12 });
-    el('line', { x1: m.l, x2: W - m.r, y1: H - m.b, y2: H - m.b, stroke: '#9a9aa2' }, g);
-    el('line', { x1: m.l, x2: m.l, y1: m.t, y2: H - m.b, stroke: '#9a9aa2' }, g);
-    text(g, (m.l + W - m.r) / 2, H - 10, 'Throughput (FPS) \u2192', { 'text-anchor': 'middle', fill: '#47474d' });
-    const yl = text(g, 16, (m.t + H - m.b) / 2, 'Video quality (VLM judge) \u2192', { 'text-anchor': 'middle', fill: '#47474d' });
+    el('line', { x1: X(16), x2: X(16), y1: m.t, y2: H - m.b, stroke: PAL.hive, 'stroke-dasharray': '5 5', 'stroke-width': 1.4 }, g);
+    text(g, X(16) - 8, m.t + 14, 'real time (16 FPS) \u2192', { fill: PAL.hive, 'font-size': 12, 'font-weight': 600, 'text-anchor': 'end' });
+    text(g, (m.l + W - m.r) / 2, H - 10, 'Throughput (FPS) \u2192', { 'text-anchor': 'middle', fill: PAL.ink, 'font-weight': 600 });
+    const yl = text(g, 16, (m.t + H - m.b) / 2, 'Video quality (VLM judge) \u2192', { 'text-anchor': 'middle', fill: PAL.ink, 'font-weight': 600 });
     yl.setAttribute('transform', `rotate(-90 16 ${(m.t + H - m.b) / 2})`);
     const tip = tipFor(box);
     for (const [name, fps, q, tot, cj, grp, [dx, dy, anchor]] of P) {
       const cx = X(fps), cy = Y(q), col = C[grp];
-      const node = el('g', { class: 'pt', tabindex: 0, style: 'cursor:default' }, g);
+      const node = el('g', { class: 'pt', tabindex: 0 }, g);
       if (grp === 'hive') {
-        const r = 11, pts = [];
-        for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * 0.45 : r; pts.push((cx + rr * Math.cos(a)).toFixed(1) + ',' + (cy + rr * Math.sin(a)).toFixed(1)); }
-        el('polygon', { points: pts.join(' '), fill: col }, node);
+        el('polygon', { class: 'halo', points: hexPts(cx, cy, 22), fill: col, opacity: 0.14 }, node);
+        const ring = el('polygon', { points: hexPts(cx, cy, 17), fill: 'none', stroke: col, 'stroke-width': 1.5, opacity: 0.5 }, node);
+        const an = el('animate', { attributeName: 'opacity', values: '0.55;0.1;0.55', dur: '2.4s', repeatCount: 'indefinite' }, ring); void an;
+        el('polygon', { points: hexPts(cx, cy, 12), fill: col, stroke: '#fff', 'stroke-width': 2 }, node);
       } else {
-        el('circle', { cx: cx, cy: cy, r: 7.5, fill: col, opacity: 0.85 }, node);
+        el('circle', { class: 'halo', cx: cx, cy: cy, r: 14, fill: col, opacity: 0.18 }, node);
+        el('circle', { cx: cx, cy: cy, r: 7.5, fill: col, stroke: '#fff', 'stroke-width': 2 }, node);
       }
-      const lab = text(node, cx + dx, cy + dy, name, { 'text-anchor': anchor, fill: col, 'font-weight': grp === 'hive' ? 700 : 500 });
-      text(node, cx + dx, cy + dy + 15, `(${tot} J)`, { 'text-anchor': anchor, fill: col, 'font-size': 11.5, opacity: 0.9 });
-      if (grp === 'hive') lab.setAttribute('font-size', 14.5);
+      const lab = text(node, cx + dx, cy + dy, name, { 'text-anchor': anchor, fill: col, 'font-weight': grp === 'hive' ? 800 : 600 });
+      text(node, cx + dx, cy + dy + 15, `(${tot} J)`, { 'text-anchor': anchor, fill: col, 'font-size': 11.5, opacity: 0.85 });
+      if (grp === 'hive') lab.setAttribute('font-size', 15);
       const html = `<b>${name}</b><br>${fps} FPS &middot; quality ${q.toFixed(2)}<br>total ${tot} J` + (cj !== null ? ` &middot; cloud ${cj} J` : '') + ' per video s';
       const show = () => { const [px, py] = pointer(svg, box, cx, cy); tip.show(html, px, py); };
       node.addEventListener('mouseenter', show); node.addEventListener('focus', show);
@@ -183,35 +189,92 @@
     const box = document.getElementById('outage');
     if (!box) return;
     const D = [[1, 0.32, 0.29, 13.4], [2, 1.32, 0.29, 16.1], [4, 3.33, 0.33, 13.7], [8, 7.33, 0.29, 19.0], [20, 19.33, 0.29, 26.0]];
-    const W = 520, H = 300, m = { l: 48, r: 16, t: 16, b: 46 };
+    const W = 520, H = 310, m = { l: 48, r: 16, t: 20, b: 48 };
     const yMax = 20, gw = (W - m.l - m.r) / D.length, bw = Math.min(30, gw * 0.32);
     const Y = (v) => H - m.b - v / yMax * (H - m.t - m.b);
     const svg = el('svg', { viewBox: `0 0 ${W} ${H}` }, box);
-    const g = el('g', { 'font-family': 'Noto Sans, sans-serif', 'font-size': 12.5 }, svg);
+    const g = el('g', { 'font-size': 12.5 }, svg);
     for (let v = 0; v <= 20; v += 5) {
-      el('line', { x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), stroke: v ? '#eee' : '#9a9aa2' }, g);
-      text(g, m.l - 8, Y(v) + 4, v, { 'text-anchor': 'end', fill: '#76767e' });
+      el('line', { x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), stroke: v ? PAL.grid : '#c9cdd6' }, g);
+      text(g, m.l - 8, Y(v) + 4, v, { 'text-anchor': 'end', fill: PAL.axis });
     }
-    const yl = text(g, 13, (m.t + H - m.b) / 2, 'Stall per clip (s)', { 'text-anchor': 'middle', fill: '#47474d' });
+    const yl = text(g, 13, (m.t + H - m.b) / 2, 'Stall per clip (s)', { 'text-anchor': 'middle', fill: PAL.ink, 'font-weight': 600 });
     yl.setAttribute('transform', `rotate(-90 13 ${(m.t + H - m.b) / 2})`);
-    text(g, (m.l + W - m.r) / 2, H - 8, 'Outage duration', { 'text-anchor': 'middle', fill: '#47474d' });
+    text(g, (m.l + W - m.r) / 2, H - 8, 'Outage duration', { 'text-anchor': 'middle', fill: PAL.ink, 'font-weight': 600 });
     const tip = tipFor(box);
     D.forEach(([o, nodev, hive, devchunks], i) => {
       const cx = m.l + gw * (i + 0.5);
-      text(g, cx, H - m.b + 18, o + ' s', { 'text-anchor': 'middle', fill: '#47474d', 'font-weight': 600 });
-      [[nodev, '#8A8A8A', -1, 'Decode-only device'], [hive, '#C8372D', 1, 'HIVE']].forEach(([v, col, side, name]) => {
+      text(g, cx, H - m.b + 19, o + ' s', { 'text-anchor': 'middle', fill: PAL.ink, 'font-weight': 600 });
+      [[nodev, PAL.two, -1, 'Decode-only device'], [hive, PAL.hive, 1, 'HIVE']].forEach(([v, col, side, name]) => {
         const x = cx + side * (bw / 2 + 2) - bw / 2;
-        const r = el('rect', { x: x, y: Y(v), width: bw, height: Math.max(1.5, Y(0) - Y(v)), rx: 3, fill: col }, g);
-        text(g, x + bw / 2, Y(v) - 5, v.toFixed(2), { 'text-anchor': 'middle', fill: col, 'font-size': 11, 'font-weight': 600 });
+        const r = el('rect', { x: x, y: Y(v), width: bw, height: Math.max(2, Y(0) - Y(v)), rx: 4, fill: col }, g);
+        text(g, x + bw / 2, Y(v) - 6, v.toFixed(2), { 'text-anchor': 'middle', fill: col, 'font-size': 11, 'font-weight': 700 });
         const html = `<b>${name}</b>, ${o}-s outage<br>stall ${v.toFixed(2)} s per clip` + (side > 0 ? `<br>device generates ${devchunks} of 39 chunks` : '');
         r.addEventListener('mouseenter', () => { const [px, py] = pointer(svg, box, x + bw / 2, Y(v)); tip.show(html, px, py); });
         r.addEventListener('mouseleave', tip.hide);
       });
     });
-    const lg = el('g', { transform: `translate(${m.l + 14},${m.t + 6})` }, g);
-    [['#8A8A8A', 'HIVE w/o device model (decode-only device)'], ['#C8372D', 'HIVE']].forEach(([c, s], i) => {
-      el('rect', { x: 0, y: i * 20, width: 12, height: 12, rx: 3, fill: c }, lg);
-      text(lg, 18, i * 20 + 10.5, s, { fill: '#47474d' });
+    const lg = el('g', { transform: `translate(${m.l + 14},${m.t + 4})` }, g);
+    [[PAL.two, 'HIVE w/o device model (decode-only device)'], [PAL.hive, 'HIVE']].forEach(([c, s], i) => {
+      el('polygon', { points: hexPts(6, i * 21 + 6, 7), fill: c }, lg);
+      text(lg, 18, i * 21 + 10.5, s, { fill: PAL.ink });
     });
+  })();
+
+  // ---------------- Collaboration designs (Fig. design_main; quality and FPS from Tables 1 and design_main) ----------------
+  (function design() {
+    const box = document.getElementById('designchart');
+    if (!box) return;
+    //  name                    quality (WS-300)  FPS (20 scenes)  cloud J
+    const P = [
+      ['Device only',            6.49, 20.4,    0],
+      ['Periodic cloud',         6.85, 23.6,  307],
+      ['Shared chunks',          7.06, 20.1,  370],
+      ['HIVE (Ours)',            7.07, 21.2,  398],
+      ['Adaptive second step',   7.11, 17.8,  513],
+      ['Two cloud steps',        7.15, 15.0,  612],
+      ['Four cloud steps',       7.16,  8.5, 1011],
+      ['Cloud only',             7.09,  7.3, 1141],
+    ];
+    const W = 560, H = 380, m = { l: 52, r: 52, t: 22, b: 118 };
+    const q0 = 6.4, q1 = 7.2, f0 = 5, f1 = 25;
+    const X = (i) => m.l + 18 + i * (W - m.l - m.r - 36) / (P.length - 1);
+    const YQ = (v) => H - m.b - (v - q0) / (q1 - q0) * (H - m.t - m.b);
+    const YF = (v) => H - m.b - (v - f0) / (f1 - f0) * (H - m.t - m.b);
+    const svg = el('svg', { viewBox: `0 0 ${W} ${H}` }, box);
+    const g = el('g', { 'font-size': 12 }, svg);
+    for (let k = 0; k <= 4; k++) {
+      const y = H - m.b - k / 4 * (H - m.t - m.b);
+      el('line', { x1: m.l, x2: W - m.r, y1: y, y2: y, stroke: k ? PAL.grid : '#c9cdd6' }, g);
+      text(g, m.l - 8, y + 4, (q0 + k / 4 * (q1 - q0)).toFixed(2), { 'text-anchor': 'end', fill: PAL.cloud });
+      text(g, W - m.r + 8, y + 4, (f0 + k / 4 * (f1 - f0)).toFixed(0), { 'text-anchor': 'start', fill: PAL.dev });
+    }
+    el('line', { x1: m.l, x2: W - m.r, y1: YF(16), y2: YF(16), stroke: PAL.dev, 'stroke-dasharray': '5 5', 'stroke-width': 1.3 }, g);
+    text(g, W - m.r - 4, YF(16) - 6, 'playback rate', { 'text-anchor': 'end', fill: PAL.dev, 'font-size': 11.5, 'font-weight': 600 });
+    const ql = text(g, 14, (m.t + H - m.b) / 2, 'Video quality \u2191', { 'text-anchor': 'middle', fill: PAL.cloud, 'font-weight': 700 });
+    ql.setAttribute('transform', `rotate(-90 14 ${(m.t + H - m.b) / 2})`);
+    const fl = text(g, W - 12, (m.t + H - m.b) / 2, 'Throughput (FPS) \u2191', { 'text-anchor': 'middle', fill: PAL.dev, 'font-weight': 700 });
+    fl.setAttribute('transform', `rotate(90 ${W - 12} ${(m.t + H - m.b) / 2})`);
+    const line = (Yf, idx, col) => el('polyline', { points: P.map((p, i) => X(i) + ',' + Yf(p[idx])).join(' '), fill: 'none', stroke: col, 'stroke-width': 2.6, 'stroke-linejoin': 'round' }, g);
+    line(YQ, 1, PAL.cloud); line(YF, 2, PAL.dev);
+    const tip = tipFor(box);
+    P.forEach(([name, q, fps, cj], i) => {
+      const x = X(i), ours = i === 3;
+      const node = el('g', { class: 'pt', tabindex: 0 }, g);
+      el('rect', { x: x - 16, y: m.t, width: 32, height: H - m.t - m.b, fill: '#000', opacity: 0 }, node);
+      if (ours) el('rect', { x: x - 16, y: m.t, width: 32, height: H - m.t - m.b, fill: PAL.hive, opacity: 0.07, rx: 6 }, node);
+      [[YQ(q), PAL.cloud], [YF(fps), PAL.dev]].forEach(([y, col]) => {
+        if (ours) el('polygon', { points: hexPts(x, y, 9), fill: PAL.hive, stroke: '#fff', 'stroke-width': 2 }, node);
+        else el('circle', { cx: x, cy: y, r: 5.5, fill: col, stroke: '#fff', 'stroke-width': 2 }, node);
+      });
+      const lab = text(node, x, H - m.b + 14, name, { 'text-anchor': 'end', fill: ours ? PAL.hive : PAL.ink, 'font-weight': ours ? 800 : 500 });
+      lab.setAttribute('transform', `rotate(-38 ${x} ${H - m.b + 14})`);
+      const html = `<b>${name}</b><br>quality ${q.toFixed(2)} &middot; ${fps} FPS<br>cloud ${cj} J per video s`;
+      const show = () => { const [px, py] = pointer(svg, box, x, Math.min(YQ(q), YF(fps))); tip.show(html, px, py); };
+      node.addEventListener('mouseenter', show); node.addEventListener('focus', show);
+      node.addEventListener('mouseleave', tip.hide); node.addEventListener('blur', tip.hide);
+    });
+    text(g, m.l, H - 8, '\u2190 more on the device', { fill: PAL.axis, 'font-weight': 600 });
+    text(g, W - m.r, H - 8, 'more in the cloud \u2192', { fill: PAL.axis, 'font-weight': 600, 'text-anchor': 'end' });
   })();
 })();
