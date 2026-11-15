@@ -1,0 +1,5 @@
+/* Local copies (latin subset) of Google Fonts, so that the page needs no external request. SIL Open Font License 1.1. */
+@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:800;font-display:swap;src:url(BricolageGrotesque-normal-800.woff2) format('woff2')}
+@font-face{font-family:'Noto Sans';font-style:normal;font-weight:400 700;font-stretch:100%;font-display:swap;src:url(NotoSans-normal.woff2) format('woff2')}
+@font-face{font-family:'Noto Sans';font-style:italic;font-weight:400 700;font-stretch:100%;font-display:swap;src:url(NotoSans-italic.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(JetBrainsMono-normal-500.woff2) format('woff2')}

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HIVE: Heterogeneous Collaboration for Video World Models</title>
+<meta name="description" content="HIVE lets a large cloud world model and a small on-device model generate one interactive video together: the cloud streams one-step lookahead chunks, and the device decodes them and regenerates the chunks that a new action invalidates.">
+<meta property="og:title" content="HIVE: Heterogeneous Collaboration for Video World Models">
+<meta property="og:description" content="Edge-cloud collaboration for interactive video world models. Quality close to the 14B cloud model at 2.9x its throughput and 35% of its cloud energy.">
+<meta property="og:image" content="https://gustn9609.github.io/hive/assets/figures/og.jpg">
+<meta property="og:url" content="https://gustn9609.github.io/hive/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="static/fonts/fonts.css?v=1">
+<link rel="stylesheet" href="static/style.css?v=1">
+<link rel="icon" href="assets/icons/hive.svg">
+</head>
+<body>
+
+<!-- ============================ HERO ============================ -->
+<header class="hero">
+  <div class="container hero-inner">
+    <h1 class="title">
+      <span class="title-main" aria-label="HIVE">HIVE</span>
+      <span class="title-sub"><b class="ini">H</b>eterogeneous Collaborat<b class="ini">i</b>on for <b class="ini">V</b>ideo World Mod<b class="ini">e</b>ls</span>
+    </h1>
+    <p class="tagline">A large world model in the cloud and a small one on the user&rsquo;s device generate one interactive video together.</p>
+    <div class="venue" id="venue">Under review</div>
+
+    <div class="authors" id="authors">
+      <span class="author"><a href="https://gustn9609.github.io/" target="_blank" rel="noopener">Hyunsoo Kim</a></span>,
+      <span class="author"><a href="https://www.guandaoyang.com/" target="_blank" rel="noopener">Guandao Yang</a></span>,
+      <span class="author"><a href="https://users.ece.utexas.edu/~dianam/" target="_blank" rel="noopener">Diana Marculescu</a></span>
+    </div>
+    <div class="affils" id="affils">The University of Texas at Austin</div>
+
+    <!--SUPP:REMOVE--><div class="links">
+      <a class="btn disabled" href="#" aria-disabled="true" data-tip="Coming soon!" onclick="return false"><img class="ico" src="assets/icons/paper.svg" alt="">Paper</a>
+      <a class="btn disabled" href="#" aria-disabled="true" data-tip="Coming soon!" onclick="return false"><img class="ico" src="assets/icons/laptop.svg" alt="">Code</a>
+    </div><!--/SUPP:REMOVE-->
+  </div>
+
+  <!-- ============================ HERO PLAYER ============================ -->
+  <div class="container">
+    <div class="stage" id="hero">
+      <div class="stage-head">
+        <div class="stage-title">One rollout, three ways to serve it</div>
+        <div class="tabs" id="hero-tabs" role="tablist" aria-label="Scenes"></div>
+      </div>
+      <div class="trio" id="hero-trio"></div>
+      <div class="ribbon-wrap" id="hero-ribbon"></div>
+      <div class="player-bar" id="hero-bar"></div>
+      <div class="stage-foot">
+        <label class="switch" title="Each video advances at the frame rate its system reaches (Table 1)">
+          <input type="checkbox" id="realtime"><span class="knob"></span>
+          <span>Play at each system&rsquo;s measured throughput</span>
+        </label>
+        <p class="stage-caption" id="hero-caption"></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ ABSTRACT ============================ -->
+<section class="section" id="abstract">
+  <div class="container narrow">
+    <h2>Abstract</h2>
+    <p class="abstract">Interactive video world models let a user explore a generated world in real time, from games to simulators for embodied agents. Current models with the best quality are too large for the user&rsquo;s device. They run in the cloud, where each user occupies a GPU and every action waits for the network. A small model fits on the device and responds immediately, but it loses details and drifts over time. We study the largely unexplored edge&ndash;cloud setting, in which a large cloud model and a small model on the edge device collaborate on generating one video. The video quality that the user sees trades off against the cloud cost of producing it. More computation in the cloud improves the video, but it costs more and slows it down. We present <strong>HIVE</strong>, a heterogeneous collaboration framework in which the cloud keeps only the work that needs the large model. The edge device does the rest and handles new actions itself. HIVE delivers video quality close to that of the large cloud model. It runs 2.9&times; faster than cloud-only generation and uses 2.9&times; less cloud GPU energy, and it responds to a new action as fast as the on-device model.</p>
+  </div>
+</section>
+
+<!-- ============================ METHOD ============================ -->
+<section class="section alt" id="method">
+  <div class="container">
+    <h2>How HIVE splits the work</h2>
+    <p class="lead narrow">Two observations decide where each model runs. While the action persists, one denoising step of the large model is enough: in a few-step distilled world model its first clean estimate is already a usable chunk. Where the action changes, the small model is enough, because the history it continues from was made by the large model.</p>
+    <div class="method-grid">
+      <figure class="figure method-fig">
+        <img src="assets/figures/method.png" alt="Three consecutive chunks around an action change. Chunk i-1: the cloud runs one step and the device decodes it. Chunk i: the action changes, the cloud estimate is discarded, and the device regenerates the chunk with four steps. Chunk i+1: the cloud continues from the regenerated chunk.">
+        <figcaption>Three consecutive chunks around an action change. The border of a frame shows which model generated the chunk.</figcaption>
+      </figure>
+      <div class="cards">
+        <div class="card">
+          <div class="card-tag cloud">Cloud &middot; 14B</div>
+          <h3>One-step lookahead</h3>
+          <p>While chunk <i>i</i>&minus;1 is on screen, the cloud predicts chunk <i>i</i> under the current action and returns only its first clean estimate. One denoising pass replaces four, the network latency hides behind the chunk being displayed, and the cloud never runs the VAE decoder.</p>
+        </div>
+        <div class="card">
+          <div class="card-tag device">Device &middot; 1.3B</div>
+          <h3>Decoding and regeneration</h3>
+          <p>The device decodes the cloud estimates. When the user changes the action, the prediction made under the old action is discarded and the device regenerates that chunk with its full four-step sampler, on the machine that receives the action first and without the network.</p>
+        </div>
+        <div class="card">
+          <div class="card-tag both">Both</div>
+          <h3>Shared history</h3>
+          <p>Every displayed chunk, whichever model made it, enters the KV cache of both models. The cloud continues from the regenerated chunk, so the small model never builds a long history of its own, and no cache tensor is ever transmitted.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ MAIN RESULTS ============================ -->
+<section class="section" id="results">
+  <div class="container">
+    <h2>Quality at the speed of the device</h2>
+    <p class="lead narrow">Interactive rollouts with unannounced action changes on WorldScore-300 (300 scenes, 30&nbsp;s each). HIVE is the only two-model method above the 16-FPS playback rate, and its judged quality is close to the four-step 14B model at 2.9&times; the throughput.</p>
+    <div class="chart-card">
+      <div class="chart" id="scatter" role="img" aria-label="Video quality against throughput for all methods of Table 1"></div>
+      <div class="chart-legend" id="scatter-legend"></div>
+    </div>
+    <div class="table-wrap" id="table-main-wrap">
+      <table class="tbl tbl-main" id="table-main"></table>
+      <div class="tbl-note">Quality on WorldScore-300 (one seed), cost on the 20-scene set, one RTX PRO 6000 per model. Quality and Drift are scores of a VLM judge (Qwen3-VL), VBench quality aggregates six dimensions, Imag. is its imaging-quality dimension (MUSIQ). RPE is the rotation error to the commanded camera path, Resp. the response score after an action change. Energy is per second of video. Latency is from an action to its first decoded frame. Network is the data exchanged per displayed frame. <sup>&dagger;</sup>Actions known in advance. Bold and underline mark the best and second best among the two-model methods and HIVE.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ QUALITATIVE ============================ -->
+<section class="section alt" id="qualitative">
+  <div class="container">
+    <h2>Side by side</h2>
+    <p class="lead narrow">Every method receives the same input image, actions, and seed. The device model and the two-model samplers lose the wall (Great Wall) and the stylized trees (Stylized forest) during the rollout, whereas the cloud model and HIVE keep both scenes to the end. These are the two rollouts of the qualitative figure in the paper, chosen by the gap in the VLM drift score.</p>
+    <div class="tabs center" id="qual-tabs" role="tablist" aria-label="Rollouts"></div>
+    <div class="qual" id="qual"></div>
+    <div class="player-bar" id="qual-bar"></div>
+  </div>
+</section>
+
+<!-- ============================ GALLERY ============================ -->
+<section class="section" id="gallery">
+  <div class="container">
+    <h2>More rollouts</h2>
+    <p class="lead narrow">Sixteen scenes of the 20-scene evaluation set, seed 1234, without further selection (the four block-world game openings are left out). The strip under the videos shows which model generated each 0.75-s chunk of the HIVE video.</p>
+    <div class="thumbs" id="gal-thumbs" role="tablist" aria-label="Scenes"></div>
+    <div class="gal-caption" id="gal-caption"></div>
+    <div class="trio small" id="gal-trio"></div>
+    <div class="ribbon-wrap" id="gal-ribbon"></div>
+    <div class="player-bar" id="gal-bar"></div>
+  </div>
+</section>
+
+<!-- ============================ NETWORK ============================ -->
+<section class="section alt" id="network">
+  <div class="container">
+    <h2>Responding without the network</h2>
+    <p class="lead narrow">The device model regenerates where the action arrives, so a new action does not wait for the cloud, and the same path covers cloud chunks that are late or missing. With every message held for 2 to 20&nbsp;s once per clip, the video of HIVE pauses for about 0.3&nbsp;s per clip, while a device that can only decode waits for the cloud.</p>
+    <div class="two-col">
+      <div class="chart-card">
+        <div class="chart-title">Player stall during a network outage</div>
+        <div class="chart" id="outage" role="img" aria-label="Stall per clip against outage duration"></div>
+        <div class="chart-note">20-scene set, real-time runtime with a 16-FPS player, outage 10&nbsp;s into each clip, 80 inputs per point. With 20&nbsp;s the cloud does not return before the clip ends. During an outage the device generates the chunks itself, 13 to 26 of the 39 per clip, so these chunks have the quality of the device model; their videos are not scored.</div>
+      </div>
+      <div class="table-wrap">
+        <table class="tbl tbl-compact" id="table-timed"></table>
+        <div class="tbl-note">Actions issued at wall-clock times, one-way network delay, 16-FPS player. End-to-end is the median latency from an input to its display, First frame the median time until its first frame is decoded, Stall the pauses of the player per clip, Cloud J the cloud energy per video second.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DESIGN + ABLATION ============================ -->
+<section class="section" id="design">
+  <div class="container">
+    <h2>Where to spend the cloud</h2>
+    <div class="two-col">
+      <div>
+        <p class="lead">More cloud steps per chunk change the judged quality little but push the throughput below the playback rate. Giving the device more chunks lowers the cloud cost but costs quality or camera accuracy. Which chunks the device generates matters more than how many.</p>
+        <figure class="figure">
+          <img src="assets/figures/design.png" alt="Video quality and throughput of collaboration designs; throughput falls below 16 FPS once the cloud runs two steps per chunk.">
+          <figcaption>Collaboration designs: quality on WorldScore-300 (blue) and throughput (orange) against the 16-FPS playback rate (dashed).</figcaption>
+        </figure>
+      </div>
+      <div class="table-wrap">
+        <table class="tbl tbl-compact" id="table-ablation"></table>
+        <div class="tbl-note">20 scenes &times; 4 seeds. The upper block removes components one after another (rows 1&ndash;3 give identical videos, row 4 is the four-step cloud model); the lower block changes how the invalidated chunk is handled. Lat. is the latency in seconds. <sup>&dagger;</sup>Quality on 40 clips, the new action is never shown.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ GENERALIZATION + LIMITS ============================ -->
+<section class="section alt" id="more">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <h2 class="left">Another backbone</h2>
+        <p>HIVE applied unchanged to Self-Forcing 1.3B on the device and Krea Realtime 14B in the cloud, both based on Wan2.1, with text prompts as actions that switch four times per rollout without being announced. This pair runs below real time in our implementation, so it tests the quality, not the runtime.</p>
+        <div class="table-wrap">
+          <table class="tbl tbl-compact" id="table-pair2"></table>
+          <div class="tbl-note">Quality and Drift are VLM judge scores, Cloud J per video second.</div>
+        </div>
+      </div>
+      <div>
+        <h2 class="left">Limitations</h2>
+        <ul class="limits">
+          <li>One-step chunks are softer than four-step chunks, so the imaging quality of HIVE stays below that of the cloud model (65.3 against 66.4 MUSIQ).</li>
+          <li>Device regeneration needs a device that runs the small model at the playback rate, here a workstation GPU (RTX PRO 6000). An RTX A5000 does not, and leaves regeneration to the cloud.</li>
+          <li>The device model does not raise the judged quality. Its contribution is the response to a new action and the playback during network problems.</li>
+          <li>After an outage the device keeps generating until the cloud leads again, 16 of the 39 chunks of a clip on average, at the quality of the device model.</li>
+          <li>With an action change every 3&nbsp;s the quality falls significantly below the four-step cloud model.</li>
+          <li>Actions are scripted, the visual scores come from automatic metrics and a VLM judge, and the cost is measured with both GPUs in one host, an injected network delay, and one cloud GPU per user. A human study, closed-loop play, and a wide-area deployment are future work.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>All videos are 30-s rollouts of the 20-scene evaluation set of the paper (LingBot-World 2.0 causal-fast, 1.3B on the device and 14B in the cloud, 16&nbsp;FPS, unannounced action changes), re-encoded with H.264 for the web. They play at 16&nbsp;FPS unless the throughput switch is on. The keys in each video show the active action (W, S forward and backward; A, D left and right; arrows for turns; no key for no input).</p>
+    <p class="muted">Numbers are copied from the paper. Icons: Twemoji (CC BY 4.0). Fonts: Noto Sans, Bricolage Grotesque, JetBrains Mono (SIL OFL).</p>
+  </div>
+</footer>
+
+<script src="static/data.js?v=1"></script>
+<script src="static/tables.js?v=1"></script>
+<script src="static/app.js?v=1"></script>
+</body>
+</html>
