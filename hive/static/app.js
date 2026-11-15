@@ -11,7 +11,7 @@
   const KEYLABEL = { W: 'W', A: 'A', S: 'S', D: 'D', yawL: '\u2190', yawR: '\u2192', stop: '\u2013' };
   const REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const css = getComputedStyle(document.documentElement);
-  const COL = { cloud: css.getPropertyValue('--cloud').trim(), dev: css.getPropertyValue('--device').trim(), hive: css.getPropertyValue('--hive').trim(), hybridsd: '#8b90a0', sdvg: '#5d6272' };
+  const COL = { cloud: css.getPropertyValue('--cloud').trim(), dev: css.getPropertyValue('--device').trim(), hive: css.getPropertyValue('--hive').trim(), hybridsd: '#8b90a0', sdvg: '#5d6272', ecdiff: '#b3b7c2' };
   const fmt = (t) => { t = Math.max(0, t); const s = Math.floor(t); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0') + '.' + Math.floor((t - s) * 10); };
   const h = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; };
   const actAt = (segs, f) => { for (const s of segs) if (f >= s.f0 && f < s.f1) return s.a; return 'stop'; };
@@ -423,23 +423,22 @@
       wipe.classList.add('hint');
       setTimeout(() => setX(22), 500); setTimeout(() => setX(78), 1600); setTimeout(() => setX(50), 2700); setTimeout(() => wipe.classList.remove('hint'), 3800);
     }, { threshold: 0.5 });
-    const LEFT = ['dev', 'hybridsd', 'sdvg', 'cloud'];
+    const LEFT = ['dev', 'hybridsd', 'ecdiff', 'sdvg', 'cloud'];
     tabs(document.getElementById('left-tabs'), LEFT.map((a) => ({ html: '<i class="d" style="background:' + COL[a] + '"></i>' + D.arms[a].label })), (i) => { setLeftLabel(LEFT[i]); G.swap(left, LEFT[i]); });
     setLeftLabel('dev');
 
-    // five-way grid
+    // six-way grid (HIVE last)
     const root = document.getElementById('qual');
-    const small = h('div', 'row-small'), big = h('div', 'row-big');
+    const six = h('div', 'row-six');
     const ps = {};
-    ['dev', 'hybridsd', 'sdvg'].forEach((a) => { ps[a] = panel(a); small.appendChild(ps[a].root); });
-    ['cloud', 'hive'].forEach((a) => { ps[a] = panel(a); big.appendChild(ps[a].root); });
-    root.append(small, big);
+    ['dev', 'hybridsd', 'ecdiff', 'sdvg', 'cloud', 'hive'].forEach((a) => { ps[a] = panel(a); six.appendChild(ps[a].root); });
+    root.append(six);
     const G2 = Group(document.getElementById('grid-card'), Object.values(ps), { barEl: document.getElementById('qual-bar') });
 
     tabs(document.getElementById('qual-tabs'), D.qual.map((e) => ({ html: e.title + ' &middot; seed ' + e.seed })), (i) => { G.load(D.qual[i]); G2.load(D.qual[i]); });
     G.load(D.qual[0]); G2.load(D.qual[0]);
     const gridCard = document.getElementById('grid-card');
-    tabs(document.getElementById('view-tabs'), [{ html: 'Slider' }, { html: 'All five' }], (i) => {
+    tabs(document.getElementById('view-tabs'), [{ html: 'Slider' }, { html: 'All six' }], (i) => {
       card.classList.toggle('hidden', i !== 0); gridCard.classList.toggle('hidden', i !== 1);
     });
   })();

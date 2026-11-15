@@ -43,6 +43,14 @@ window.HIVE_DATA = {
    "fps": 6.8,
    "quality": 6.86,
    "cloudJ": 742
+  },
+  "ecdiff": {
+   "label": "EC-Diff",
+   "sub": "2 cloud steps, 1 extrapolated, 1 device step",
+   "color": "#8A8A8A",
+   "fps": 11.6,
+   "quality": 6.96,
+   "cloudJ": 627
   }
  },
  "gallery": [
@@ -826,6 +834,7 @@ window.HIVE_DATA = {
    "videos": {
     "dev": "assets/videos/neutral_832__easy_greatwall__s1234__dev.mp4",
     "hybridsd": "assets/videos/neutral_832__easy_greatwall__s1234__hybridsd.mp4",
+    "ecdiff": "assets/videos/neutral_832__easy_greatwall__s1234__ecdiff.mp4",
     "sdvg": "assets/videos/neutral_832__easy_greatwall__s1234__sdvg.mp4",
     "cloud": "assets/videos/neutral_832__easy_greatwall__s1234__cloud.mp4",
     "hive": "assets/videos/neutral_832__easy_greatwall__s1234__hive.mp4"
@@ -874,11 +883,110 @@ window.HIVE_DATA = {
    "videos": {
     "dev": "assets/videos/mg2__universal_0009__s1235__dev.mp4",
     "hybridsd": "assets/videos/mg2__universal_0009__s1235__hybridsd.mp4",
+    "ecdiff": "assets/videos/mg2__universal_0009__s1235__ecdiff.mp4",
     "sdvg": "assets/videos/mg2__universal_0009__s1235__sdvg.mp4",
     "cloud": "assets/videos/mg2__universal_0009__s1235__cloud.mp4",
     "hive": "assets/videos/mg2__universal_0009__s1235__hive.mp4"
    },
    "poster": "assets/posters/mg2__universal_0009__s1235.webp"
+  },
+  {
+   "scene": "neutral_832__easy_lake",
+   "seed": 1234,
+   "title": "Lake",
+   "caption": "A serene lakeside scene at Lake Wanaka: a lone willow tree stands in calm turquoise water, snow-capped mountains rise in the distance under a bright sky with drifting white clouds. Gentle ripples spread across the surface as the camera glides smoothly forward over the water toward the tree.",
+   "segments": [
+    {
+     "a": "yawL",
+     "f0": 0,
+     "f1": 96
+    },
+    {
+     "a": "stop",
+     "f0": 96,
+     "f1": 192
+    },
+    {
+     "a": "D",
+     "f0": 192,
+     "f1": 288
+    },
+    {
+     "a": "yawR",
+     "f0": 288,
+     "f1": 384
+    },
+    {
+     "a": "A",
+     "f0": 384,
+     "f1": 480
+    }
+   ],
+   "stale": [
+    9,
+    17,
+    25,
+    33
+   ],
+   "open": 2,
+   "videos": {
+    "dev": "assets/videos/neutral_832__easy_lake__s1234__dev.mp4",
+    "hybridsd": "assets/videos/neutral_832__easy_lake__s1234__hybridsd.mp4",
+    "ecdiff": "assets/videos/neutral_832__easy_lake__s1234__ecdiff.mp4",
+    "sdvg": "assets/videos/neutral_832__easy_lake__s1234__sdvg.mp4",
+    "cloud": "assets/videos/neutral_832__easy_lake__s1234__cloud.mp4",
+    "hive": "assets/videos/neutral_832__easy_lake__s1234__hive.mp4"
+   },
+   "poster": "assets/posters/neutral_832__easy_lake__s1234.webp"
+  },
+  {
+   "scene": "neutral_832__easy_urban_rain",
+   "seed": 1234,
+   "title": "Alley in the rain",
+   "caption": "A cinematic first-person walk through a hyper-realistic urban alley in heavy rain: water streams down the graffiti-covered corrugated wall, puddles ripple on the ground, grey overcast sky, drops streak across the lens as the camera moves forward.",
+   "segments": [
+    {
+     "a": "yawL",
+     "f0": 0,
+     "f1": 96
+    },
+    {
+     "a": "W",
+     "f0": 96,
+     "f1": 192
+    },
+    {
+     "a": "S",
+     "f0": 192,
+     "f1": 288
+    },
+    {
+     "a": "D",
+     "f0": 288,
+     "f1": 384
+    },
+    {
+     "a": "stop",
+     "f0": 384,
+     "f1": 480
+    }
+   ],
+   "stale": [
+    9,
+    17,
+    25,
+    33
+   ],
+   "open": 2,
+   "videos": {
+    "dev": "assets/videos/neutral_832__easy_urban_rain__s1234__dev.mp4",
+    "hybridsd": "assets/videos/neutral_832__easy_urban_rain__s1234__hybridsd.mp4",
+    "ecdiff": "assets/videos/neutral_832__easy_urban_rain__s1234__ecdiff.mp4",
+    "sdvg": "assets/videos/neutral_832__easy_urban_rain__s1234__sdvg.mp4",
+    "cloud": "assets/videos/neutral_832__easy_urban_rain__s1234__cloud.mp4",
+    "hive": "assets/videos/neutral_832__easy_urban_rain__s1234__hive.mp4"
+   },
+   "poster": "assets/posters/neutral_832__easy_urban_rain__s1234.webp"
   }
  ],
  "hero": [

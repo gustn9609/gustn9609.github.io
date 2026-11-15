@@ -350,6 +350,7 @@ h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,3.6vw,2.6re
 .qual-grid{display:grid;gap:14px}
 .qual-grid .row-small{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .qual-grid .row-big{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.qual-grid .row-six{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .hidden{display:none!important}
 
 /* ================= GALLERY ================= */
@@ -412,6 +413,7 @@ h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,3.6vw,2.6re
   .stage{padding:14px 12px 12px;border-radius:18px}
   .trio{grid-template-columns:minmax(0,1fr);gap:12px}
   .qual-grid .row-small,.qual-grid .row-big{grid-template-columns:minmax(0,1fr)}
+  .qual-grid .row-six{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
   .cards-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .stage-head{flex-direction:column;align-items:flex-start}
   .tabs{border-radius:14px}

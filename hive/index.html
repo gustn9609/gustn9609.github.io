@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://gustn9609.github.io/hive/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="static/fonts/fonts.css?v=2">
-<link rel="stylesheet" href="static/style.css?v=2">
+<link rel="stylesheet" href="static/style.css?v=3">
 <link rel="icon" href="assets/icons/hive.svg">
 </head>
 <body>
@@ -187,7 +187,7 @@
     <div class="head rv">
       <div class="eyebrow">Comparison</div>
       <h2>Side by side</h2>
-      <p class="lead">Every method receives the same input image, actions, and seed. The device model and the two-model samplers lose the wall (Great Wall) and the stylized trees (Stylized forest) during the rollout, whereas the cloud model and HIVE keep both scenes to the end. These are the two rollouts of the qualitative figure in the paper, chosen by the gap in the VLM drift score.</p>
+      <p class="lead">Every method receives the same input image, actions, and seed. Great Wall and Stylized forest are the two rollouts of the qualitative figure in the paper, chosen by the gap in the VLM drift score: the device model, Hybrid SD, and SDVG lose the wall and the stylized trees, whereas the cloud model and HIVE keep both scenes to the end. EC-Diff, which is not in that figure, keeps the wall but not the stylized trees. Lake and Alley in the rain are two further scenes of the 20-scene set.</p>
     </div>
     <div class="cmp-controls rv">
       <div class="tabs" id="qual-tabs" role="tablist" aria-label="Rollouts"></div>
@@ -307,8 +307,8 @@
   </div>
 </footer>
 
-<script src="static/data.js?v=2"></script>
-<script src="static/tables.js?v=2"></script>
-<script src="static/app.js?v=2"></script>
+<script src="static/data.js?v=3"></script>
+<script src="static/tables.js?v=3"></script>
+<script src="static/app.js?v=3"></script>
 </body>
 </html>
