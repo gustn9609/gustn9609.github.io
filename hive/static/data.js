@@ -10,13 +10,13 @@ window.HIVE_DATA = {
    "color": "#4E86B4",
    "fps": 7.3,
    "quality": 7.09,
-   "cloudJ": 1141
+   "cloudJ": 1172
   },
   "dev": {
    "label": "Device only",
    "sub": "1.3B, 4 steps",
    "color": "#D98A3D",
-   "fps": 20.4,
+   "fps": 20.1,
    "quality": 6.49,
    "cloudJ": 0
   },
@@ -24,33 +24,33 @@ window.HIVE_DATA = {
    "label": "HIVE (Ours)",
    "sub": "1 cloud step, device at action changes",
    "color": "#C8372D",
-   "fps": 21.2,
+   "fps": 21.4,
    "quality": 7.07,
-   "cloudJ": 398
+   "cloudJ": 404
   },
   "hybridsd": {
    "label": "Hybrid SD",
    "sub": "2 cloud + 2 device steps per chunk",
    "color": "#8A8A8A",
-   "fps": 10.6,
+   "fps": 10.8,
    "quality": 6.6,
-   "cloudJ": 647
+   "cloudJ": 645
   },
   "sdvg": {
    "label": "SDVG",
    "sub": "device drafts, cloud redoes rejected ones",
    "color": "#8A8A8A",
-   "fps": 6.8,
+   "fps": 7.3,
    "quality": 6.86,
-   "cloudJ": 742
+   "cloudJ": 625
   },
   "ecdiff": {
    "label": "EC-Diff",
    "sub": "2 cloud steps, 1 extrapolated, 1 device step",
    "color": "#8A8A8A",
-   "fps": 11.6,
+   "fps": 11.5,
    "quality": 6.96,
-   "cloudJ": 627
+   "cloudJ": 634
   }
  },
  "gallery": [

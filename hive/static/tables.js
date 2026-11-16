@@ -26,18 +26,18 @@
     '<tr><th>Method</th><th>FPS &uarr;</th><th>Quality &uarr;</th><th>Drift &darr;</th><th>Quality &uarr;</th><th>Imag. &uarr;</th><th>RPE &darr;</th><th>Resp. &uarr;</th><th>Device</th><th>Cloud</th><th>Total</th><th>Latency (s) &darr;</th><th>Network (kB/frame) &darr;</th></tr>',
     [
       { group: 'Single model', span: 13 },
-      { cls: 'dim', name: 'Device only (1.3B)', v: [20.4, 6.49, 64.8, 76.2, 61.9, 0.653, 86.6, 349, 0, 349, 0.583, 0] },
-      { cls: 'dim', name: 'Cloud only (14B)', v: [7.3, 7.09, 53.5, '77.0', 66.4, 0.483, '84.0', 0, 1141, 1141, 1.632, '&ndash;'] },
-      { cls: 'dim', name: 'Cloud only (14B), 1-step<sup>&dagger;</sup>', v: [14.2, 7.03, 48.2, 77.5, 65.2, 0.371, 83.5, 0, 551, 551, 0.842, '&ndash;'] },
-      { cls: 'dim', name: '14B on the device, 4-bit', v: ['5.0', 6.99, 51.2, 76.4, 65.4, 0.454, 85.2, 1649, 0, 1649, 2.364, 0] },
-      { cls: 'dim', name: 'Speculative Forcing', v: [22.7, 5.37, 71.1, 73.2, '61.0', 0.834, 85.9, 349, 0, 349, 0.561, 0] },
+      { cls: 'dim', name: 'Device only (1.3B)', v: [20.1, 6.49, 64.8, 76.2, 61.9, 0.653, 86.6, 360, 0, 360, 0.592, 0] },
+      { cls: 'dim', name: 'Cloud only (14B)', v: [7.3, 7.09, 53.5, '77.0', 66.4, 0.483, '84.0', 0, 1172, 1172, 1.657, '&ndash;'] },
+      { cls: 'dim', name: 'Cloud only (14B), 1-step<sup>&dagger;</sup>', v: [14.1, 7.03, 48.2, 77.5, 65.2, 0.371, 83.5, 0, 567, 567, 0.856, '&ndash;'] },
+      { cls: 'dim', name: '14B on the device, 4-bit', v: ['5.0', 6.99, 51.2, 76.4, 65.4, 0.454, 85.2, 1705, 0, 1705, 2.404, 0] },
+      { cls: 'dim', name: 'Speculative Forcing', v: [22.5, 5.37, 71.1, 73.2, '61.0', 0.834, 85.9, 340, 0, 340, 0.565, 0] },
       { group: 'Two models on two GPUs', span: 13 },
-      { name: 'Hybrid SD', v: [10.6, '6.60', 58.7, 76.1, 61.8, 0.507, 84.2, 383, 647, 1030, 1.102, 86.2] },
-      { name: 'EC-Diff', v: ['u:11.6', 'u:6.96', 'u:51.3', 'u:76.9', 'u:64.8', 'u:0.435', 85.4, 'u:329', 'u:627', 'u:956', 'u:1.028', 57.7] },
-      { name: 'SDVG (&tau; = &minus;1.2)', v: [6.8, 6.86, 58.1, 76.7, 64.3, 0.564, 'u:86.2', 686, 742, 1428, 2.192, 'b:29.2'] },
+      { name: 'Hybrid SD', v: [10.8, '6.60', 58.7, 76.1, 61.8, 0.507, 84.2, 373, 645, 1018, 1.107, 87.5] },
+      { name: 'EC-Diff', v: ['u:11.5', 'u:6.96', 'u:51.3', 'u:76.9', 'u:64.8', 'u:0.435', 85.4, 'u:334', 634, 'u:968', 'u:1.042', 58.6] },
+      { name: 'SDVG (&tau; = &minus;1.2)', v: [7.3, 6.86, 58.1, 76.7, 64.3, 0.564, 'u:86.2', 681, 'u:625', 1306, 1.152, 'b:29.6'] },
       { group: 'Edge&ndash;cloud collaboration', span: 13 },
-      { cls: 'dim', name: 'HIVE w/o device model', v: [21.3, 7.03, 48.2, 77.5, 65.2, 0.371, 83.5, 209, 413, 622, 0.788, '32.0'] },
-      { cls: 'ours', name: 'HIVE (Ours)', v: ['b:21.2', 'b:7.07', 'b:46.6', 'b:77.9', 'b:65.3', 'b:0.382', 'b:87.2', 'b:250', 'b:398', 'b:648', 'b:0.586', 'u:32.0'] },
+      { cls: 'dim', name: 'HIVE w/o device model', v: [21.3, 7.03, 48.2, 77.5, 65.2, 0.371, 83.5, 208, 422, 630, 0.801, 32.5] },
+      { cls: 'ours', name: 'HIVE (Ours)', v: ['b:21.4', 'b:7.07', 'b:46.6', 'b:77.9', 'b:65.3', 'b:0.382', 'b:87.2', 'b:251', 'b:404', 'b:655', 'b:0.595', 'u:32.5'] },
     ]);
 
   // ---------------- Table 2 (ablation) ----------------
@@ -55,14 +55,24 @@
       { cls: 'ours', name: 'HIVE (Ours)', v: ['u:21.2', 7.28, 'u:67.0', 'b:0.461', 'b:0.59', 'b:398'] },
     ]);
 
+  // ---------------- Device denoising steps ----------------
+  render('table-devsteps',
+    '<tr><th>Regeneration</th><th>MUSIQ &uarr;</th><th>Rot. RPE (&deg;) &darr;</th><th>VLM drift &darr;</th></tr>',
+    [
+      { name: 'Cloud, 1 step<sup>&dagger;</sup>', v: ['63.04', '0.593', '46.0'] },
+      { name: 'Device, 1 step', v: ['57.86', '0.488', '44.8'] },
+      { name: 'Device, 2 steps', v: ['62.96', '0.480', '40.3'] },
+      { cls: 'ours', name: 'Device, 4 steps (HIVE)', v: ['b:66.15', 'b:0.402', 'b:39.3'] },
+    ]);
+
   // ---------------- Table 3 (another backbone) ----------------
   render('table-pair2',
     '<tr><th>Method</th><th>FPS &uarr;</th><th>Quality &uarr;</th><th>Drift &darr;</th><th>Imag. &uarr;</th><th>Cloud J &darr;</th></tr>',
     [
-      { name: 'Device only (1.3B)', v: ['b:5.4', 7.72, '29.0', 'u:67.7', 0] },
-      { name: 'Cloud only (14B)', v: [1.4, 'b:8.13', 'u:19.0', 'b:69.7', 3312] },
-      { name: 'Cloud only (14B), 1-step', v: ['u:2.9', '7.60', 21.5, 65.2, 'u:1515'] },
-      { cls: 'ours', name: 'HIVE (Ours)', v: [2.7, 'u:7.95', 'b:15.4', 66.6, 'b:1333'] },
+      { name: 'Device only (1.3B)', v: ['b:14.5', 7.72, '29.0', 'u:67.7', 0] },
+      { name: 'Cloud only (14B)', v: [3.8, 'b:8.13', 'u:19.0', 'b:69.7', 2406] },
+      { name: 'Cloud only (14B), 1-step', v: [8.0, '7.60', 21.5, 65.2, 'u:1098'] },
+      { cls: 'ours', name: 'HIVE (Ours)', v: ['u:9.8', 'u:7.95', 'b:15.4', 66.6, 'b:844'] },
     ]);
 
   // ---------------- Table 4 (real-time inputs) ----------------
@@ -125,15 +135,15 @@
     const C = { cloud: PAL.cloud, dev: PAL.dev, two: PAL.two, design: PAL.design, hive: PAL.hive };
     //   name                      fps   quality total J  cloud J group     label dx, dy, anchor
     const P = [
-      ['Cloud only (14B)',          7.3,  7.09, 1141, 1141, 'cloud', [12, -4, 'start']],
-      ['Device only (1.3B)',       20.4,  6.49,  349,    0, 'dev', [12, 14, 'start']],
-      ['Hybrid SD',                10.6,  6.60, 1030,  647, 'two', [0, 24, 'middle']],
-      ['SDVG',                      6.8,  6.86, 1428,  742, 'two', [12, 2, 'start']],
-      ['EC-Diff',                  11.6,  6.96,  956,  627, 'two', [12, 2, 'start']],
+      ['Cloud only (14B)',          7.3,  7.09, 1172, 1172, 'cloud', [12, -4, 'start']],
+      ['Device only (1.3B)',       20.1,  6.49,  360,    0, 'dev', [12, 14, 'start']],
+      ['Hybrid SD',                10.8,  6.60, 1018,  645, 'two', [0, 24, 'middle']],
+      ['SDVG',                      7.3,  6.86, 1306,  625, 'two', [12, 2, 'start']],
+      ['EC-Diff',                  11.5,  6.96,  968,  634, 'two', [12, 2, 'start']],
       ['Low-res cloud',            17.8,  5.73,  737,  null, 'design', [12, -2, 'start']],
       ['Cloud step + refine',      20.5,  6.52,  734,  null, 'design', [-12, -16, 'end']],
       ['Periodic cloud',           23.6,  6.85,  602,  307, 'design', [0, 24, 'middle']],
-      ['HIVE (Ours)',              21.2,  7.07,  648,  398, 'hive', [0, -36, 'middle']],
+      ['HIVE (Ours)',              21.4,  7.07,  655,  404, 'hive', [0, -36, 'middle']],
     ];
     const W = 780, H = 410, m = { l: 64, r: 26, t: 22, b: 54 };
     const x0 = 5, x1 = 25.5, y0 = 5.6, y1 = 7.3;
@@ -174,13 +184,13 @@
       const lab = text(node, cx + dx, cy + dy, name, { 'text-anchor': anchor, fill: col, 'font-weight': grp === 'hive' ? 800 : 600 });
       text(node, cx + dx, cy + dy + 15, `(${tot} J)`, { 'text-anchor': anchor, fill: col, 'font-size': 11.5, opacity: 0.85 });
       if (grp === 'hive') lab.setAttribute('font-size', 15);
-      const html = `<b>${name}</b><br>${fps} FPS &middot; quality ${q.toFixed(2)}<br>total ${tot} J` + (cj !== null ? ` &middot; cloud ${cj} J` : '') + ' per video s';
+      const html = `<b>${name}</b><br>${fps} FPS &middot; quality ${q.toFixed(2)}<br>total ${tot} J` + (cj !== null ? ` &middot; cloud ${cj} J` : '') + ' per video s' + (grp === 'design' ? ' (20 scenes)' : '');
       const show = () => { const [px, py] = pointer(svg, box, cx, cy); tip.show(html, px, py); };
       node.addEventListener('mouseenter', show); node.addEventListener('focus', show);
       node.addEventListener('mouseleave', tip.hide); node.addEventListener('blur', tip.hide);
     }
     const lg = document.getElementById('scatter-legend');
-    if (lg) lg.innerHTML = [['cloud', 'Cloud model alone'], ['dev', 'Device model alone'], ['two', 'Published two-model methods'], ['design', 'Other collaboration designs'], ['hive', 'HIVE']]
+    if (lg) lg.innerHTML = [['cloud', 'Cloud model alone'], ['dev', 'Device model alone'], ['two', 'Published two-model methods'], ['design', 'Other collaboration designs (20 scenes)'], ['hive', 'HIVE']]
       .map(([k, s]) => `<span><i class="dot" style="background:${C[k]}"></i>${s}</span>`).join('');
   })();
 
@@ -249,8 +259,6 @@
       text(g, m.l - 8, y + 4, (q0 + k / 4 * (q1 - q0)).toFixed(2), { 'text-anchor': 'end', fill: PAL.cloud });
       text(g, W - m.r + 8, y + 4, (f0 + k / 4 * (f1 - f0)).toFixed(0), { 'text-anchor': 'start', fill: PAL.dev });
     }
-    el('line', { x1: m.l, x2: W - m.r, y1: YF(16), y2: YF(16), stroke: PAL.dev, 'stroke-dasharray': '5 5', 'stroke-width': 1.3 }, g);
-    text(g, W - m.r - 4, YF(16) - 6, 'playback rate', { 'text-anchor': 'end', fill: PAL.dev, 'font-size': 11.5, 'font-weight': 600 });
     const ql = text(g, 14, (m.t + H - m.b) / 2, 'Video quality \u2191', { 'text-anchor': 'middle', fill: PAL.cloud, 'font-weight': 700 });
     ql.setAttribute('transform', `rotate(-90 14 ${(m.t + H - m.b) / 2})`);
     const fl = text(g, W - 12, (m.t + H - m.b) / 2, 'Throughput (FPS) \u2191', { 'text-anchor': 'middle', fill: PAL.dev, 'font-weight': 700 });
@@ -269,7 +277,7 @@
       });
       const lab = text(node, x, H - m.b + 14, name, { 'text-anchor': 'end', fill: ours ? PAL.hive : PAL.ink, 'font-weight': ours ? 800 : 500 });
       lab.setAttribute('transform', `rotate(-38 ${x} ${H - m.b + 14})`);
-      const html = `<b>${name}</b><br>quality ${q.toFixed(2)} &middot; ${fps} FPS<br>cloud ${cj} J per video s`;
+      const html = `<b>${name}</b><br>quality ${q.toFixed(2)} &middot; ${fps} FPS<br>cloud ${cj} J per video s (20 scenes)`;
       const show = () => { const [px, py] = pointer(svg, box, x, Math.min(YQ(q), YF(fps))); tip.show(html, px, py); };
       node.addEventListener('mouseenter', show); node.addEventListener('focus', show);
       node.addEventListener('mouseleave', tip.hide); node.addEventListener('blur', tip.hide);
