@@ -1,4 +1,4 @@
-// HIVE project page: synchronized players with action-key overlays and the chunk-source ribbon, the teaser mosaic,
+// SPARE project page: synchronized players with action-key overlays and the chunk-source ribbon, the teaser mosaic,
 // the step-by-step method diagram, the drag-to-compare player, gallery cards with hover previews, nav and reveal effects.
 (function () {
   'use strict';
@@ -64,11 +64,11 @@
     return { arm, root, box, video: v, poster, pad, lag, flag, rate: Math.min(1, A.fps / FPS) };
   }
 
-  // ---------------------------------------------------------------- ribbon: which model generated each chunk of the HIVE video
+  // ---------------------------------------------------------------- ribbon: which model generated each chunk of the SPARE video
   function ribbon(container) {
     container.innerHTML = '';
     const lab = h('div', 'ribbon-label');
-    lab.appendChild(h('span', '', '<b>HIVE</b> &middot; source of each 0.75-s chunk'));
+    lab.appendChild(h('span', '', '<b>SPARE</b> &middot; source of each 0.75-s chunk'));
     lab.appendChild(h('span', 'legend', '<span><i class="sw cloud1"></i>cloud, one step</span><span><i class="sw dev4"></i>device, four steps (action changed)</span><span><i class="sw open"></i>opening chunks (cloud)</span>'));
     container.appendChild(lab);
     const rb = h('div', 'ribbon'); rb.style.gridTemplateColumns = `repeat(${NCHUNK},minmax(0,1fr))`;
@@ -194,7 +194,7 @@
       if (!G.loaded || !G.visible || !G.entry) return;
       const m = master(), t = m.currentTime;
       const d = D.frames / FPS;
-      // loop: restart every video when the master (HIVE) reaches the end. In real-time mode a slower system has shown less
+      // loop: restart every video when the master (SPARE) reaches the end. In real-time mode a slower system has shown less
       // of its video by then, which is the point of that view.
       if (m.ended || t >= d - 0.06) { G.seek(0); if (G.wantPlay) G.play(); }
       for (const p of panels) {
@@ -246,7 +246,7 @@
     const G = Group(document.getElementById('hero'), ps, { ribbonEl: document.getElementById('hero-ribbon'), barEl: document.getElementById('hero-bar') });
     const cap = document.getElementById('hero-caption');
     const CAP_SYNC = 'Shown in sync at 16 FPS. The numbers under each video are the averages of Table 1 (throughput, VLM-judged quality on WorldScore-300, cloud energy per second of video), not measurements of this clip.';
-    const CAP_RT = 'Each video now advances at the frame rate its system reaches with one RTX PRO 6000 per model (Table 1), capped at the 16-FPS playback rate. The cloud model alone produces 7.3 frames per second, so its video falls behind; the device model and HIVE keep up.';
+    const CAP_RT = 'Each video now advances at the frame rate its system reaches with one RTX PRO 6000 per model (Table 1), capped at the 16-FPS playback rate. The cloud model alone produces 7.3 frames per second, so its video falls behind; the device model and SPARE keep up.';
     cap.textContent = CAP_SYNC;
     tabs(document.getElementById('hero-tabs'), D.hero.map((e) => ({ html: e.title })), (i) => G.load(D.hero[i]));
     G.load(D.hero[0]);
@@ -301,7 +301,7 @@
     return { select(scene) { const i = D.gallery.findIndex((e) => e.scene === scene); if (i >= 0) show(i); } };
   })();
 
-  // ---------------------------------------------------------------- teaser mosaic (HIVE excerpts)
+  // ---------------------------------------------------------------- teaser mosaic (SPARE excerpts)
   (function teaser() {
     const root = document.getElementById('teaser');
     const SCENES = ['neutral_832__easy_greatwall', 'mg2__universal_0008', 'mg2__universal_0011', 'neutral_832__easy_dragon_night',
@@ -427,7 +427,7 @@
     tabs(document.getElementById('left-tabs'), LEFT.map((a) => ({ html: '<i class="d" style="background:' + COL[a] + '"></i>' + D.arms[a].label })), (i) => { setLeftLabel(LEFT[i]); G.swap(left, LEFT[i]); });
     setLeftLabel('dev');
 
-    // six-way grid (HIVE last)
+    // six-way grid (SPARE last)
     const root = document.getElementById('qual');
     const six = h('div', 'row-six');
     const ps = {};

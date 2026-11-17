@@ -21,7 +21,7 @@ window.HIVE_DATA = {
    "cloudJ": 0
   },
   "hive": {
-   "label": "HIVE (Ours)",
+   "label": "SPARE (Ours)",
    "sub": "1 cloud step, device at action changes",
    "color": "#C8372D",
    "fps": 21.4,

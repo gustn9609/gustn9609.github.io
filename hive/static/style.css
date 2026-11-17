@@ -60,7 +60,6 @@ h3{font-size:1.08rem}
 .title-main{display:inline-block;font-family:var(--display);font-size:clamp(4.6rem,13vw,8.6rem);font-weight:800;letter-spacing:.015em;line-height:.95;background:var(--grad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 .04em .08em;animation:sheen 9s ease-in-out infinite alternate}
 @keyframes sheen{from{background-position:0% 0}to{background-position:100% 0}}
 .title-sub{display:block;font-size:clamp(1.15rem,2.3vw,1.6rem);font-weight:500;color:var(--ink-2);margin-top:12px;letter-spacing:-.01em}
-.title-sub .ini{font-weight:800;color:var(--hive);text-decoration:underline;text-decoration-thickness:2.5px;text-underline-offset:5px;text-decoration-color:rgba(224,67,95,.45)}
 .tagline{font-size:1.12rem;color:var(--muted);margin:4px auto 18px;max-width:720px}
 .venue{display:inline-block;font-size:.86rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 14px;margin:0 0 18px;box-shadow:var(--shadow-sm)}
 .authors{font-size:1.2rem;line-height:1.7;font-weight:500}
@@ -311,10 +310,11 @@ h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,3.6vw,2.6re
 .tbl tbody tr:not(.group):hover td{background:#fafbfd}
 .tbl tr.group td{background:#fbfbfc;font:600 .7rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--faint);padding:7px 16px 5px}
 .tbl tr.dim td{color:#8b90a0}
-.tbl tr.ours td{background:var(--ours);font-weight:600;color:var(--ink)}
-.tbl tr.ours:hover td{background:#fbe7eb}
-.tbl tr.ours td:first-child{color:var(--hive);position:relative}
-.tbl tr.ours td:first-child::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--hive)}
+.tbl-extra{margin:14px 0 0;font-size:.9rem;color:var(--ink-2);line-height:1.6}
+.tbl tr.ours td{background:#e9f0fe;font-weight:600;color:var(--ink)}
+.tbl tr.ours:hover td{background:#dce8fc}
+.tbl tr.ours td:first-child{color:#2a5db8;position:relative}
+.tbl tr.ours td:first-child::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#3b78d8}
 .tbl td b{font-weight:800;color:inherit}
 .tbl td u{text-decoration-thickness:1.5px;text-underline-offset:3px}
 .tbl-main{font-size:.84rem}

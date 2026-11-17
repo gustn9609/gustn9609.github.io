@@ -1,4 +1,4 @@
-// Numbers copied from the paper (Tables 1-4, Fig. 1(b), and the outage-duration table of the appendix).
+// Numbers copied from the paper (Tables 1-5, Fig. 1(b), and the outage-duration table of the appendix).
 // Cell markup: 'b:x' = best (bold), 'u:x' = second best (underline), as in the paper.
 (function () {
   'use strict';
@@ -22,22 +22,22 @@
 
   // ---------------- Table 1 ----------------
   render('table-main',
-    '<tr class="grp"><th></th><th></th><th colspan="2">VLM judge</th><th colspan="2">VBench</th><th colspan="2">Camera / motion</th><th colspan="3">Energy (J / video s) &darr;</th><th></th><th></th></tr>' +
-    '<tr><th>Method</th><th>FPS &uarr;</th><th>Quality &uarr;</th><th>Drift &darr;</th><th>Quality &uarr;</th><th>Imag. &uarr;</th><th>RPE &darr;</th><th>Resp. &uarr;</th><th>Device</th><th>Cloud</th><th>Total</th><th>Latency (s) &darr;</th><th>Network (kB/frame) &darr;</th></tr>',
+    '<tr class="grp"><th></th><th></th><th colspan="2">VBench</th><th colspan="2">Camera / motion</th><th colspan="2">VLM judge</th><th colspan="3">Energy (J / video s) &darr;</th><th></th><th></th></tr>' +
+    '<tr><th>Method</th><th>FPS &uarr;</th><th>Quality &uarr;</th><th>Imag. &uarr;</th><th>RPE &darr;</th><th>Resp. &uarr;</th><th>Quality &uarr;</th><th>Drift &darr;</th><th>Device</th><th>Cloud</th><th>Total</th><th>Latency (s) &darr;</th><th>Network (kB/frame) &darr;</th></tr>',
     [
       { group: 'Single model', span: 13 },
-      { cls: 'dim', name: 'Device only (1.3B)', v: [20.1, 6.49, 64.8, 76.2, 61.9, 0.653, 86.6, 360, 0, 360, 0.592, 0] },
-      { cls: 'dim', name: 'Cloud only (14B)', v: [7.3, 7.09, 53.5, '77.0', 66.4, 0.483, '84.0', 0, 1172, 1172, 1.657, '&ndash;'] },
-      { cls: 'dim', name: 'Cloud only (14B), 1-step<sup>&dagger;</sup>', v: [14.1, 7.03, 48.2, 77.5, 65.2, 0.371, 83.5, 0, 567, 567, 0.856, '&ndash;'] },
-      { cls: 'dim', name: '14B on the device, 4-bit', v: ['5.0', 6.99, 51.2, 76.4, 65.4, 0.454, 85.2, 1705, 0, 1705, 2.404, 0] },
-      { cls: 'dim', name: 'Speculative Forcing', v: [22.5, 5.37, 71.1, 73.2, '61.0', 0.834, 85.9, 340, 0, 340, 0.565, 0] },
+      { cls: 'dim', name: 'Device only (1.3B)', v: [20.1, 76.2, 61.9, 0.653, 86.6, 6.49, 64.8, 360, 0, 360, 0.592, 0] },
+      { cls: 'dim', name: 'Cloud only (14B)', v: [7.3, '77.0', 66.4, 0.483, '84.0', 7.09, 53.5, 0, 1172, 1172, 1.657, '&ndash;'] },
+      { cls: 'dim', name: 'Cloud only (14B), 1-step<sup>&dagger;</sup>', v: [14.1, 77.5, 65.2, 0.371, 83.5, 7.03, 48.2, 0, 567, 567, 0.856, '&ndash;'] },
+      { cls: 'dim', name: '14B on the device, 4-bit', v: ['5.0', 76.4, 65.4, 0.454, 85.2, 6.99, 51.2, 1705, 0, 1705, 2.404, 0] },
+      { cls: 'dim', name: 'Speculative Forcing', v: [22.5, 73.2, '61.0', 0.834, 85.9, 5.37, 71.1, 340, 0, 340, 0.565, 0] },
       { group: 'Two models on two GPUs', span: 13 },
-      { name: 'Hybrid SD', v: [10.8, '6.60', 58.7, 76.1, 61.8, 0.507, 84.2, 373, 645, 1018, 1.107, 87.5] },
-      { name: 'EC-Diff', v: ['u:11.5', 'u:6.96', 'u:51.3', 'u:76.9', 'u:64.8', 'u:0.435', 85.4, 'u:334', 634, 'u:968', 'u:1.042', 58.6] },
-      { name: 'SDVG (&tau; = &minus;1.2)', v: [7.3, 6.86, 58.1, 76.7, 64.3, 0.564, 'u:86.2', 681, 'u:625', 1306, 1.152, 'b:29.6'] },
+      { name: 'Hybrid SD', v: [10.8, 76.1, 61.8, 0.507, 84.2, '6.60', 58.7, 373, 645, 1018, 1.107, 87.5] },
+      { name: 'EC-Diff', v: [11.5, 76.9, 64.8, 0.435, 85.4, 6.96, 51.3, 334, 634, 968, 1.042, 58.6] },
+      { name: 'SDVG (&tau; = &minus;1.2)', v: [7.3, 76.7, 64.3, 0.564, 'u:86.2', 6.86, 58.1, 681, 625, 1306, 1.152, 'b:29.6'] },
       { group: 'Edge&ndash;cloud collaboration', span: 13 },
-      { cls: 'dim', name: 'HIVE w/o device model', v: [21.3, 7.03, 48.2, 77.5, 65.2, 0.371, 83.5, 208, 422, 630, 0.801, 32.5] },
-      { cls: 'ours', name: 'HIVE (Ours)', v: ['b:21.4', 'b:7.07', 'b:46.6', 'b:77.9', 'b:65.3', 'b:0.382', 'b:87.2', 'b:251', 'b:404', 'b:655', 'b:0.595', 'u:32.5'] },
+      { cls: 'dim', name: 'SPARE w/o device generator', v: ['u:21.3', 'u:77.5', 'u:65.2', 'b:0.371', 83.5, 'u:7.03', 'u:48.2', 'b:208', 'u:422', 'b:630', 'u:0.801', 'u:32.5'] },
+      { cls: 'ours', name: 'SPARE (Ours)', v: ['b:21.4', 'b:77.9', 'b:65.3', 'u:0.382', 'b:87.2', 'b:7.07', 'b:46.6', 'u:251', 'b:404', 'u:655', 'b:0.595', 'u:32.5'] },
     ]);
 
   // ---------------- Table 2 (ablation) ----------------
@@ -51,51 +51,50 @@
       { name: '&minus; one-step sampling', v: [7.3, 'b:7.33', 'b:68.7', 0.729, 1.63, 1141] },
       { group: 'Chunk invalidated by an action change', span: 7 },
       { name: 'No regeneration<sup>&dagger;</sup>', v: [21.1, 7.23, 65.5, '0.690', '&ndash;', 'u:400'] },
-      { name: 'Guided regeneration', v: [20.1, 'u:7.31', 66.5, 'u:0.462', '0.80', 401] },
-      { cls: 'ours', name: 'HIVE (Ours)', v: ['u:21.2', 7.28, 'u:67.0', 'b:0.461', 'b:0.59', 'b:398'] },
+      { name: 'Stale-cloud guidance', v: [20.1, 'u:7.31', 66.5, 'u:0.462', '0.80', 401] },
+      { cls: 'ours', name: 'SPARE (Ours)', v: ['u:21.2', 7.28, 'u:67.0', 'b:0.461', 'b:0.59', 'b:398'] },
     ]);
 
-  // ---------------- Device denoising steps ----------------
+  // ---------------- Device denoising steps (Table 4) ----------------
   render('table-devsteps',
     '<tr><th>Regeneration</th><th>MUSIQ &uarr;</th><th>Rot. RPE (&deg;) &darr;</th><th>VLM drift &darr;</th></tr>',
     [
       { name: 'Cloud, 1 step<sup>&dagger;</sup>', v: ['63.04', '0.593', '46.0'] },
       { name: 'Device, 1 step', v: ['57.86', '0.488', '44.8'] },
       { name: 'Device, 2 steps', v: ['62.96', '0.480', '40.3'] },
-      { cls: 'ours', name: 'Device, 4 steps (HIVE)', v: ['b:66.15', 'b:0.402', 'b:39.3'] },
+      { cls: 'ours', name: 'Device, 4 steps (SPARE)', v: ['b:66.15', 'b:0.402', 'b:39.3'] },
     ]);
 
-  // ---------------- Table 3 (another backbone) ----------------
+  // ---------------- Table 5 (another backbone) ----------------
+  // The quality, drift and imaging cells of the row without the device generator reuse the one-step cloud scores
+  // (matching latents in the cost runs); they were not evaluated separately, hence the double dagger.
   render('table-pair2',
     '<tr><th>Method</th><th>FPS &uarr;</th><th>Quality &uarr;</th><th>Drift &darr;</th><th>Imag. &uarr;</th><th>Cloud J &darr;</th></tr>',
     [
       { name: 'Device only (1.3B)', v: ['b:14.5', 7.72, '29.0', 'u:67.7', 0] },
       { name: 'Cloud only (14B)', v: [3.8, 'b:8.13', 'u:19.0', 'b:69.7', 2406] },
-      { name: 'Cloud only (14B), 1-step', v: [8.0, '7.60', 21.5, 65.2, 'u:1098'] },
-      { cls: 'ours', name: 'HIVE (Ours)', v: ['u:9.8', 'u:7.95', 'b:15.4', 66.6, 'b:844'] },
+      { name: 'Cloud only (14B), 1-step', v: [8.0, '7.60', 21.5, 65.2, 1098] },
+      { cls: 'dim', name: 'SPARE w/o device generator', v: [8.8, '7.60<sup>&Dagger;</sup>', '21.5<sup>&Dagger;</sup>', '65.2<sup>&Dagger;</sup>', 'u:1025'] },
+      { cls: 'ours', name: 'SPARE (Ours)', v: ['u:9.8', 'u:7.95', 'b:15.4', 66.6, 'b:844'] },
     ]);
 
-  // ---------------- Table 4 (real-time inputs) ----------------
+  // ---------------- Table 3 (local regeneration and outages) ----------------
   render('table-timed',
-    '<tr><th></th><th>End-to-end (s) &darr;</th><th>First frame (s) &darr;</th><th>Stall (s/clip) &darr;</th><th>Cloud J &darr;</th></tr>',
+    '<tr class="grp"><th></th><th colspan="2">Latency (s) &darr;</th><th>Stall &darr;</th><th colspan="2">Energy &darr;</th></tr>' +
+    '<tr><th>Method</th><th>CPU-ready</th><th>Display</th><th>(s/clip)</th><th>Cloud</th><th>Total</th></tr>',
     [
-      { group: 'Network delay 0 ms', span: 5 },
-      { name: 'No lookahead, 1-step', v: [1.08, 1.08, 0.31, 416] },
-      { name: 'HIVE w/o device model', v: ['b:0.78', 0.59, 'b:0.00', 431] },
-      { cls: 'ours', name: 'HIVE (Ours)', v: ['b:0.77', 'b:0.39', 'b:0.00', 'b:414'] },
-      { group: 'Network delay 150 ms', span: 5 },
-      { name: 'No lookahead, 1-step', v: [4.43, 4.43, 6.92, 436] },
-      { name: 'HIVE w/o device model', v: ['b:1.07', '0.90', 'b:0.00', 431] },
-      { cls: 'ours', name: 'HIVE (Ours)', v: ['b:1.07', 'b:0.49', 'b:0.00', 'b:415'] },
-      { group: 'Delay 50 ms, jitter &plusmn;30 ms, loss 2%', span: 5 },
-      { name: 'HIVE w/o device model', v: [0.95, 0.73, 0.01, 431] },
-      { cls: 'ours', name: 'HIVE (Ours)', v: ['b:0.87', 'b:0.41', 'b:0.00', 'b:415'] },
-      { group: '2-s network outage', span: 5 },
-      { name: 'HIVE w/o device model', v: [2.01, 0.76, 1.32, 430] },
-      { cls: 'ours', name: 'HIVE (Ours)', v: ['b:1.00', 'b:0.62', 'b:0.29', 'b:405'] },
-      { group: '20-s network outage', span: 5 },
-      { name: 'HIVE w/o device model', v: [20.02, 17.37, 19.33, 479] },
-      { cls: 'ours', name: 'HIVE (Ours)', v: ['b:1.01', 'b:0.40', 'b:0.29', 'b:339'] },
+      { group: '(a) Real-time inputs, 0 ms one-way delay', span: 6 },
+      { cls: 'dim', name: 'w/o device generator', v: [0.59, 0.78, 'b:0.00', 431, 'b:657'] },
+      { cls: 'ours', name: 'SPARE (Ours)', v: ['b:0.39', 0.77, 'b:0.00', 'b:414', 683] },
+      { group: '(b) Real-time inputs, 150 ms one-way delay', span: 6 },
+      { cls: 'dim', name: 'w/o device generator', v: [0.90, 'b:1.07', 'b:0.00', 431, 'b:657'] },
+      { cls: 'ours', name: 'SPARE (Ours)', v: ['b:0.49', 'b:1.07', 'b:0.00', 'b:415', 684] },
+      { group: '(c) Logged-time replay, 150 ms delay', span: 6 },
+      { cls: 'dim', name: 'w/o device generator', v: [0.90, 0.90, 0.68, 431, 'b:657'] },
+      { cls: 'ours', name: 'SPARE (Ours)', v: ['b:0.49', 'b:0.76', 'b:0.17', 'b:415', 684] },
+      { group: '(d) WorldScore-300, 2-s network outage', span: 6 },
+      { cls: 'dim', name: 'w/o device generator', v: ['b:0.64', 1.92, 1.33, 441, 'b:668'] },
+      { cls: 'ours', name: 'SPARE (Ours)', v: ['b:0.64', 'b:0.92', 'b:0.29', 'b:411', 723] },
     ]);
 
   // ---------------- helpers for the SVG charts ----------------
@@ -143,7 +142,7 @@
       ['Low-res cloud',            17.8,  5.73,  737,  null, 'design', [12, -2, 'start']],
       ['Cloud step + refine',      20.5,  6.52,  734,  null, 'design', [-12, -16, 'end']],
       ['Periodic cloud',           23.6,  6.85,  602,  307, 'design', [0, 24, 'middle']],
-      ['HIVE (Ours)',              21.4,  7.07,  655,  404, 'hive', [0, -36, 'middle']],
+      ['SPARE (Ours)',             21.4,  7.07,  655,  404, 'hive', [0, -36, 'middle']],
     ];
     const W = 780, H = 410, m = { l: 64, r: 26, t: 22, b: 54 };
     const x0 = 5, x1 = 25.5, y0 = 5.6, y1 = 7.3;
@@ -190,7 +189,7 @@
       node.addEventListener('mouseleave', tip.hide); node.addEventListener('blur', tip.hide);
     }
     const lg = document.getElementById('scatter-legend');
-    if (lg) lg.innerHTML = [['cloud', 'Cloud model alone'], ['dev', 'Device model alone'], ['two', 'Published two-model methods'], ['design', 'Other collaboration designs (20 scenes)'], ['hive', 'HIVE']]
+    if (lg) lg.innerHTML = [['cloud', 'Cloud model alone'], ['dev', 'Device model alone'], ['two', 'Published two-model methods'], ['design', 'Other collaboration designs (20 scenes)'], ['hive', 'SPARE']]
       .map(([k, s]) => `<span><i class="dot" style="background:${C[k]}"></i>${s}</span>`).join('');
   })();
 
@@ -215,7 +214,7 @@
     D.forEach(([o, nodev, hive, devchunks], i) => {
       const cx = m.l + gw * (i + 0.5);
       text(g, cx, H - m.b + 19, o + ' s', { 'text-anchor': 'middle', fill: PAL.ink, 'font-weight': 600 });
-      [[nodev, PAL.two, -1, 'Decode-only device'], [hive, PAL.hive, 1, 'HIVE']].forEach(([v, col, side, name]) => {
+      [[nodev, PAL.two, -1, 'Decode-only device'], [hive, PAL.hive, 1, 'SPARE']].forEach(([v, col, side, name]) => {
         const x = cx + side * (bw / 2 + 2) - bw / 2;
         const r = el('rect', { x: x, y: Y(v), width: bw, height: Math.max(2, Y(0) - Y(v)), rx: 4, fill: col }, g);
         text(g, x + bw / 2, Y(v) - 6, v.toFixed(2), { 'text-anchor': 'middle', fill: col, 'font-size': 11, 'font-weight': 700 });
@@ -225,7 +224,7 @@
       });
     });
     const lg = el('g', { transform: `translate(${m.l + 14},${m.t + 4})` }, g);
-    [[PAL.two, 'HIVE w/o device model (decode-only device)'], [PAL.hive, 'HIVE']].forEach(([c, s], i) => {
+    [[PAL.two, 'SPARE w/o device generator (decode-only device)'], [PAL.hive, 'SPARE']].forEach(([c, s], i) => {
       el('polygon', { points: hexPts(6, i * 21 + 6, 7), fill: c }, lg);
       text(lg, 18, i * 21 + 10.5, s, { fill: PAL.ink });
     });
@@ -240,7 +239,7 @@
       ['Device only',            6.49, 20.4,    0],
       ['Periodic cloud',         6.85, 23.6,  307],
       ['Shared chunks',          7.06, 20.1,  370],
-      ['HIVE (Ours)',            7.07, 21.2,  398],
+      ['SPARE (Ours)',           7.07, 21.2,  398],
       ['Adaptive second step',   7.11, 17.8,  513],
       ['Two cloud steps',        7.15, 15.0,  612],
       ['Four cloud steps',       7.16,  8.5, 1011],
